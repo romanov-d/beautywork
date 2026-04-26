@@ -35,12 +35,16 @@ export default function HomePage() {
       <div className="page-wrapper">
         <Navbar onOpenModal={() => setModalOpen(true)} />
         <HeroSection onOpenModal={() => setModalOpen(true)} />
-        <IntroSection onOpenModal={() => setModalOpen(true)} />
-        <LaserProducts />
+        <div id="about">
+          <IntroSection onOpenModal={() => setModalOpen(true)} />
+        </div>
+        <div id="catalog">
+          <LaserProducts />
+        </div>
         <div style={{ marginTop: "5rem" }}>
           <CosmetologyProducts />
         </div>
-        <div style={{ marginTop: "5rem" }}>
+        <div id="reviews" style={{ marginTop: "5rem" }}>
           <Reviews />
         </div>
         <HowItWorks />

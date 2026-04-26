@@ -98,22 +98,36 @@ export default function AnimationProvider({ children }: { children: React.ReactN
       });
     });
 
-    // 3. Nav Dropdown interaction (Sync with is-open class)
-    const navBar = document.querySelector('.nav-bar');
-    const navDropdownTrigger = document.querySelector('[data-nav-dropdown]');
-    if (navBar && navDropdownTrigger) {
-      navDropdownTrigger.addEventListener('mouseenter', () => {
-        navBar.classList.add('is-open');
-      });
-      navDropdownTrigger.addEventListener('mouseleave', () => {
-        navBar.classList.remove('is-open');
-      });
-    }
 
-    // 4. Slider logic
+
+    // 4. Global Reveal animations
+    const revealElements = document.querySelectorAll('h1, h2, h3, h4, h5, h6, p, section, .icon-container, .product-card, .blur-box, .featured-product');
+    revealElements.forEach((el) => {
+      gsap.fromTo(el, 
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1.5,
+          ease: "power4.out",
+          scrollTrigger: {
+            trigger: el,
+            start: "top 88%",
+            toggleActions: "play none none none"
+          }
+        }
+      );
+    });
+
+    // 5. Floating animations for icons and images
+    document.querySelectorAll('.icon, .intro-photo-left, .intro-photo-right').forEach((el) => {
+      el.classList.add('floating');
+    });
+
+    // 6. Slider logic
     initSliders();
     
-    console.log("GSAP Animations initialized");
+    console.log("GSAP Global Animations initialized");
   };
 
   const initSliders = () => {

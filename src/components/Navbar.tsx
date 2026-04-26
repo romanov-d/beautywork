@@ -129,12 +129,11 @@ export default function Navbar({ onOpenModal }: NavbarProps) {
         </div>
 
         <div id="w-node-a9fcd343-232f-f2a3-62ff-4d3bbaa4e183-baa4e179" className="nav-middle">
-          <a data-modal-target="modal-menu" data-button="" href="#" className="nav-link is-light"
-            onClick={(e) => { e.preventDefault(); onOpenModal(); }}>Каталог</a>
+          <Link href="#catalog" className="nav-link is-light">Каталог</Link>
           <div className="nav-divider" />
-          <Link href="/about" className="nav-link is-light">О нас</Link>
+          <Link href="#about" className="nav-link is-light">О нас</Link>
           <div className="nav-divider" />
-          <Link href="/terms-and-conditions" className="nav-link is-light">Условия</Link>
+          <Link href="#reviews" className="nav-link is-light">Отзывы</Link>
           <div className="nav-divider" />
           <Link href="/cart" className="nav-link is-light">Корзина</Link>
         </div>
@@ -144,64 +143,6 @@ export default function Navbar({ onOpenModal }: NavbarProps) {
             <UserIcon />
             <div data-button-text="">Оставить заявку</div>
           </Link>
-        </div>
-
-        {/* nav-dropdown (hidden by default via CSS, preserves layout) */}
-        <div data-webflow-open="" data-nav-dropdown-area="" className="nav-dropdown">
-          <div className="nav-dropdown-inner">
-            {/* Weight Loss / Laser dropdown content */}
-            <div data-nav-dropdown-content="" className="nav-dropdown-content">
-              <div className="nav-dropdown-left">
-                <div className="nav-dropdown-menu-wrap">
-                  <div className="nav-dropdown-menu">
-                    <div className="subheading">Лазерная эпиляция</div>
-                    <div className="nav-dropdown-menu-quicklinks">
-                      <Link href="/products/elza" className="body-large is-link is-nav">Soprano Titanium 1600Вт<span className="rx-span">Hit</span></Link>
-                      <div className="line-dotted" />
-                      <Link href="/products/elza" className="body-large is-link is-nav">Soprano Titanium 1200Вт</Link>
-                    </div>
-                  </div>
-                  <div className="nav-dropdown-menu">
-                    <div className="subheading">Аппаратная косметология</div>
-                    <div className="nav-dropdown-menu-quicklinks">
-                      <Link href="/products/elza" className="body-large is-link is-nav">Morpheus MR 8 PRO</Link>
-                      <div className="line-dotted" />
-                      <Link href="/products/elza" className="body-large is-link is-nav">Velashape Sculptor</Link>
-                    </div>
-                  </div>
-                </div>
-                <div className="nav-dropdown-bottom">
-                  <Link data-button="" href="/weight-loss" className="primary-button is-ft-3 wl w-inline-block">
-                    <ArrowIcon />
-                    <div data-button-text="">Смотреть все лазеры</div>
-                  </Link>
-                </div>
-              </div>
-              <div className="nav-dropdown-right">
-                <div className="w-dyn-list">
-                  <div role="list" className="w-dyn-items">
-                    <div data-video-on-hover="not-active" role="listitem" className="nav-dropdown-product w-dyn-item">
-                      <Link href="/products/elza" className="nav-dropdown-product-link w-inline-block">
-                        <div className="nav-dropdown-product-head">
-                          <div className="nav-dropdown-product-title">
-                            <div className="heading-6">Soprano Titanium 1600Вт — Чёрный</div>
-                          </div>
-                          <div style={{ color: "#6a8360" }} className="subheading">Лазерная эпиляция</div>
-                        </div>
-                        <div className="nav-dropdown-product-asset">
-                          <div className="nav-dropdown-product-video">
-                            {/* eslint-disable-next-line @next/next/no-img-element */}
-                            <img loading="lazy" src="/images/6938b2546e05f6b0136844c8_TIRZEPATIDE VIAL (transparent)-min.avif"
-                              alt="" sizes="100vw" className="video-card-visual__img" />
-                          </div>
-                        </div>
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
 
