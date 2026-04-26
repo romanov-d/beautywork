@@ -1116,7 +1116,8 @@ h3.heading-5.is-process,
     z-index: 10 !important;
   }
   .hero-section .centre-flex {
-    padding-bottom: 38vh !important; /* Move higher */
+    padding-bottom: 8vh !important;
+    padding-top: 10vh !important; /* Move it down from the header */
   }
   .hero-section img[src*="intro-person"] {
     width: 11% !important;
