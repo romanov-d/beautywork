@@ -65,7 +65,7 @@ export default function HowItWorks() {
               <div className="subheading is-white">[03]</div>
             </div>
             <div className="box-text">
-              <p className="is-light-text">Бесплатный тренинг для мастеров, гарантия 12 месяцев и собственный сервисный центр в Москве на весь срок работы с аппаратом.</p>
+              <p className="is-light-text">Профессиональный тренинг для мастеров, гарантия 12 месяцев и собственный сервисный центр в Москве на весь срок работы с аппаратом.</p>
             </div>
           </div>
         </div>

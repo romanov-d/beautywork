@@ -52,7 +52,7 @@ export default function IntroSection({ onOpenModal: _onOpenModal }: { onOpenModa
             <img src="/images/69161a5ba77813a6d0c4bc40_icons8-lab-coat.svg" loading="lazy" alt="" className="icon" />
             <div className="small-flex">
               <h3 className="heading-5">Обучение мастеров</h3>
-              <p className="p-max-width">После покупки — бесплатный тренинг работе на аппарате от наших специалистов.</p>
+              <p className="p-max-width">Профессиональный тренинг по работе на аппарате от наших специалистов.</p>
             </div>
           </div>
           <div className="icon-container">
