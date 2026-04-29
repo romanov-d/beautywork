@@ -28,8 +28,7 @@ export default function HeroSection({ onOpenModal }: { onOpenModal: () => void }
         height: "100vh", 
         minHeight: "100vh",
         display: "flex",
-        flexDirection: "column",
-        justifyContent: "center"
+        flexDirection: "column"
       }}
     >
       {/* Background Layer */}
@@ -91,7 +90,7 @@ export default function HeroSection({ onOpenModal }: { onOpenModal: () => void }
       />
 
       {/* Heading + CTA with parallax */}
-      <motion.div className="centre-flex" style={{ paddingBottom: "30vh", y: textY, position: "relative", zIndex: 10 }}>
+      <motion.div className="centre-flex" style={{ y: textY, position: "relative", zIndex: 10 }}>
         <h1 data-load-hero-title="" className="hero-heading"
           style={{ fontSize: "clamp(2rem, 4.5vw, 3.75rem)", lineHeight: 1.0 }}>
           Оборудование<br />красоты для<br />вашего бизнеса
