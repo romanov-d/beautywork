@@ -647,8 +647,8 @@ h3.heading-5.is-process,
     padding: 0 1rem !important;
   }
   .intro-section img {
-    width: 140px !important;
-    height: 140px !important;
+    width: 110px !important;
+    height: 110px !important;
     order: 2 !important;
   }
   .intro-section div:nth-child(2) {
@@ -1120,7 +1120,7 @@ h3.heading-5.is-process,
     padding-top: 10vh !important; /* Move it down from the header */
   }
   .hero-section img[src*="intro-person"] {
-    width: 11% !important;
+    width: 8% !important;
     top: 85% !important;
   }
   /* Lower the main background animation (Unicorn Embed) */
@@ -1147,7 +1147,7 @@ h3.heading-5.is-process,
     flex-direction: column !important;
   }
   .process-heading-div img {
-    width: 35% !important;
+    width: 25% !important;
     margin: 0 auto !important;
   }
   .display.is-hiw {
