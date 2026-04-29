@@ -612,9 +612,9 @@ h3.heading-5.is-process,
     padding-top: 2rem;
   }
 
-  /* ===== Hero Section ===== */
   .hero-section {
-    height: auto !important;
+    height: 100vh !important;
+    height: 100svh !important;
     min-height: 100vh !important;
     min-height: 100svh !important;
     padding-top: 0 !important;
