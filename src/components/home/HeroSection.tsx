@@ -93,8 +93,8 @@ export default function HeroSection({ onOpenModal }: { onOpenModal: () => void }
       {/* Heading + CTA with parallax */}
       <motion.div className="centre-flex" style={{ paddingBottom: "30vh", y: textY, position: "relative", zIndex: 10 }}>
         <h1 data-load-hero-title="" className="hero-heading"
-          style={{ fontSize: "clamp(2rem, 4.5vw, 3.75rem)", lineHeight: 0.9 }}>
-          Оборудование красоты<br />для вашего бизнеса
+          style={{ fontSize: "clamp(2rem, 4.5vw, 3.75rem)", lineHeight: 1.0 }}>
+          Оборудование<br />красоты для<br />вашего бизнеса
         </h1>
         <a data-load-hero-button="" data-button="" href="#" className="primary-button w-inline-block"
           onClick={(e) => { e.preventDefault(); onOpenModal(); }}>

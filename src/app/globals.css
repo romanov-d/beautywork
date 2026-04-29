@@ -1121,7 +1121,7 @@ h3.heading-5.is-process,
   }
   .hero-section .centre-flex {
     padding-bottom: 0 !important;
-    padding-top: 18vh !important; /* Moved higher up */
+    padding-top: 10vh !important; /* Moved even higher up */
     display: flex !important;
     flex-direction: column !important;
     justify-content: flex-start !important;
