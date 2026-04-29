@@ -1113,18 +1113,20 @@ h3.heading-5.is-process,
   }
 
   .hero-section .hero-heading {
-    font-size: 8vw !important; /* Smaller as requested */
-    margin-bottom: 1.2rem !important; /* Smaller gap */
+    font-size: 9.5vw !important; /* Slightly larger */
+    margin-bottom: 1.5rem !important;
     position: relative !important;
     z-index: 10 !important;
+    text-align: center !important;
   }
   .hero-section .centre-flex {
     padding-bottom: 0 !important;
-    padding-top: 0 !important;
+    padding-top: 18vh !important; /* Moved higher up */
     display: flex !important;
     flex-direction: column !important;
-    justify-content: center !important;
+    justify-content: flex-start !important;
     align-items: center !important;
+    width: 100% !important;
   }
   .hero-section img[src*="intro-person"] {
     width: 8% !important;
