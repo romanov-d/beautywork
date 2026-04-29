@@ -52,6 +52,10 @@ body {
   background-color: #1e1e1e !important;
 }
 
+.pc-only {
+  display: block !important;
+}
+
 .mob-only {
   display: none !important;
 }
@@ -63,7 +67,7 @@ body {
   flex-direction: column !important;
   justify-content: center !important;
   align-items: center !important;
-  padding-bottom: 8vh !important; /* Raise content slightly on desktop */
+  padding-bottom: 25vh !important; /* Raised even higher on desktop */
 }
 
 
@@ -401,6 +405,9 @@ h3.heading-5.is-process,
 
 /* Mobile Adaptation */
 @media screen and (max-width: 767px) {
+  .pc-only {
+    display: none !important;
+  }
   .mob-only {
     display: block !important;
   }
