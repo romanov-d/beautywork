@@ -93,7 +93,7 @@ export default function HeroSection({ onOpenModal }: { onOpenModal: () => void }
       <motion.div className="centre-flex" style={{ y: textY, position: "relative", zIndex: 10 }}>
         <h1 data-load-hero-title="" className="hero-heading"
           style={{ fontSize: "clamp(2rem, 4.5vw, 3.75rem)", lineHeight: 1.0 }}>
-          Оборудование<br />красоты для<br />вашего бизнеса
+          Оборудование <br className="mob-only" />красоты для<br />вашего бизнеса
         </h1>
         <a data-load-hero-button="" data-button="" href="#" className="primary-button w-inline-block"
           onClick={(e) => { e.preventDefault(); onOpenModal(); }}>

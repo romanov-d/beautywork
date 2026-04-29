@@ -52,9 +52,18 @@ body {
   background-color: #1e1e1e !important;
 }
 
+.mob-only {
+  display: none !important;
+}
+
 .hero-section {
   min-height: 100vh !important;
   height: 100vh !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  padding-bottom: 8vh !important; /* Raise content slightly on desktop */
 }
 
 
@@ -392,6 +401,9 @@ h3.heading-5.is-process,
 
 /* Mobile Adaptation */
 @media screen and (max-width: 767px) {
+  .mob-only {
+    display: block !important;
+  }
 
   /* ===== MOBILE HEADER ===== */
   .mobile-navbar {
