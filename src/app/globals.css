@@ -614,9 +614,9 @@ h3.heading-5.is-process,
 
   .hero-section {
     height: 100vh !important;
-    height: 100svh !important;
+    height: 100dvh !important;
     min-height: 100vh !important;
-    min-height: 100svh !important;
+    min-height: 100dvh !important;
     padding-top: 0 !important;
     padding-bottom: 0 !important;
     justify-content: center !important;
@@ -1116,8 +1116,12 @@ h3.heading-5.is-process,
     z-index: 10 !important;
   }
   .hero-section .centre-flex {
-    padding-bottom: 8vh !important;
-    padding-top: 10vh !important; /* Move it down from the header */
+    padding-bottom: 0 !important;
+    padding-top: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
   }
   .hero-section img[src*="intro-person"] {
     width: 8% !important;
@@ -1131,7 +1135,7 @@ h3.heading-5.is-process,
   }
   .hero-video canvas {
     margin-top: 0 !important;
-    transform: scale(1.1) !important; /* Scale up slightly to avoid gaps */
+    transform: scale(0.85) !important; /* Scaled down as requested */
   }
 
   /* Centering HIW & FAQ on Mobile */
