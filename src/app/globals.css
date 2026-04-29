@@ -1295,10 +1295,10 @@ h3.heading-5.is-process,
       top: 85% !important;
     }
 
-    /* Moved girl lower to avoid overlap */
+    /* Adjusted girl position for balance */
     .hero-video div[style*="translate3d"] {
-      transform: translateY(50%) !important;
-      -webkit-transform: translate3d(0, 50%, 0) !important;
+      transform: translateY(35%) !important;
+      -webkit-transform: translate3d(0, 35%, 0) !important;
       top: 0 !important;
     }
 
