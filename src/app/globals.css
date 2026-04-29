@@ -1281,7 +1281,7 @@ h3.heading-5.is-process,
 
     .hero-section .centre-flex {
       padding-bottom: 0 !important;
-      padding-top: 10vh !important;
+      padding-top: 20vh !important;
       /* Maximum height */
       display: flex !important;
       flex-direction: column !important;
@@ -1295,10 +1295,10 @@ h3.heading-5.is-process,
       top: 85% !important;
     }
 
-    /* Moved girl back up */
+    /* Moved girl lower to avoid overlap */
     .hero-video div[style*="translate3d"] {
-      transform: translateY(20%) !important;
-      -webkit-transform: translate3d(0, 20%, 0) !important;
+      transform: translateY(50%) !important;
+      -webkit-transform: translate3d(0, 50%, 0) !important;
       top: 0 !important;
     }
 
