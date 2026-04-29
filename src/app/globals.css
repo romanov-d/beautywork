@@ -613,14 +613,17 @@ h3.heading-5.is-process,
   }
 
   .hero-section {
-    height: 100vh !important;
-    height: 100dvh !important;
-    min-height: 100vh !important;
-    min-height: 100dvh !important;
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
+    position: relative !important;
+    display: flex !important;
+    flex-direction: column !important;
     justify-content: center !important;
     align-items: center !important;
+    width: 100% !important;
+    height: 100dvh !important;
+    min-height: 100dvh !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
   }
   .hero-section img[src*="intro-person"] {
     display: none !important;
@@ -1127,10 +1130,10 @@ h3.heading-5.is-process,
     width: 8% !important;
     top: 85% !important;
   }
-  /* Lower the main background animation (Unicorn Embed) */
+  /* Raise the background animation (Unicorn Embed) */
   .hero-video div[style*="translate3d"] {
-    transform: translateY(55%) !important;
-    -webkit-transform: translate3d(0, 55%, 0) !important;
+    transform: translateY(35%) !important;
+    -webkit-transform: translate3d(0, 35%, 0) !important;
     top: 0 !important;
   }
   .hero-video canvas {
