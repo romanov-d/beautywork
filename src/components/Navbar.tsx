@@ -134,15 +134,14 @@ export default function Navbar({ onOpenModal }: NavbarProps) {
         </div>
 
         <div id="w-node-a9fcd343-232f-f2a3-62ff-4d3bbaa4e18f-baa4e179" className="nav-right" style={{ display: "flex", alignItems: "center", gap: "1.5rem" }}>
-          <a 
-            href="#" 
+          <Link 
+            href="/cart#request-form" 
             className="login-button w-inline-block" 
             style={{ backgroundColor: "#d2a382" }}
-            onClick={(e) => { e.preventDefault(); onOpenModal(); }}
           >
             <UserIcon />
             <div data-button-text="">Оставить заявку</div>
-          </a>
+          </Link>
           <Link href="/cart" className="nav-link is-light cart-link-wrapper">
             <CartIcon />
             {count > 0 && <span className="cart-counter">{count}</span>}
@@ -241,14 +240,14 @@ export default function Navbar({ onOpenModal }: NavbarProps) {
             </div>
 
             <div className="login-mobile">
-              <a 
-                href="#" 
+              <Link 
+                href="/cart#request-form" 
                 className="primary-button is-menu w-inline-block" 
-                onClick={(e) => { e.preventDefault(); closeMenu(); onOpenModal(); }}
+                onClick={closeMenu}
               >
                 <ArrowIcon />
                 <div>Оставить заявку</div>
-              </a>
+              </Link>
               <div className="mobile-divider" />
             </div>
           </div>

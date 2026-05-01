@@ -33,7 +33,7 @@ export default function HowItWorks() {
               <div className="subheading is-white">[01]</div>
             </div>
             <div className="box-text">
-              <p className="is-light-text">Оставляете заявку, обсуждаем задачи салона или клиники — подбираем модель, манипулы и комплектацию под ваш поток клиентов.</p>
+              <p className="is-light-text">Оставляете заявку, обсуждаем задачи салона или клиники — подберём вам мощность и дизайн аппарата под ваш поток клиентов.</p>
             </div>
           </div>
 
