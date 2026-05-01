@@ -2,6 +2,7 @@
 
 import React, { useEffect, createContext, useContext, useRef } from "react";
 import Script from "next/script";
+import { usePathname } from "next/navigation";
 import Lenis from "lenis";
 
 const AnimationContext = createContext<any>(null);
@@ -12,6 +13,14 @@ export function useAnimation() {
 
 export default function AnimationProvider({ children }: { children: React.ReactNode }) {
   const lenisRef = useRef<Lenis | null>(null);
+  const pathname = usePathname();
+
+  // Reset scroll on route change
+  useEffect(() => {
+    if (lenisRef.current) {
+      lenisRef.current.scrollTo(0, { immediate: true });
+    }
+  }, [pathname]);
 
   useEffect(() => {
     // Initialize Lenis

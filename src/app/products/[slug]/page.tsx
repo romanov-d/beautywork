@@ -11,11 +11,11 @@ import { getProductById } from "@/data/products";
 import Link from "next/link";
 
 const PAGE_STYLES = `
-  .product-hero-section { padding-top: 6rem; padding-bottom: 3rem; }
+  .product-hero-section { padding-top: 6rem; padding-bottom: 4rem; }
   .product-hero-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    gap: 5rem;
     align-items: flex-start;
     padding: 0 5%;
     max-width: 1400px;
@@ -23,90 +23,74 @@ const PAGE_STYLES = `
     width: 100%;
   }
   .product-title-text {
-    font-size: clamp(2rem, 5vw, 4rem);
+    font-size: clamp(2rem, 4.5vw, 3.5rem);
     line-height: 1.05;
     margin: 0 0 0.75rem;
     font-weight: 500;
     letter-spacing: -0.02em;
     color: #f0ede8;
-    text-align: left;
   }
   .product-category-label {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 600;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     color: #d2a382;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.25rem;
     display: block;
   }
   .product-description {
-    font-size: 1.05rem;
-    line-height: 1.65;
-    color: rgba(240, 237, 232, 0.7);
+    font-size: 1rem;
+    line-height: 1.7;
+    color: rgba(240, 237, 232, 0.65);
     margin-bottom: 2.5rem;
-    max-width: 600px;
-  }
-  .product-image-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: transparent !important;
-    padding: 0 !important;
-    transform: translateX(10%);
-  }
-  .product-image-container img {
-    width: 115%;
-    max-width: 800px;
-    height: auto;
-    object-fit: contain;
-    background: transparent !important;
   }
   .button-group {
     display: flex;
-    gap: 1.2rem;
+    gap: 1rem;
     margin-bottom: 3rem;
     flex-wrap: wrap;
   }
   .product-features {
     display: flex;
     flex-direction: column;
-    gap: 0.8rem;
+    gap: 0.75rem;
     padding: 0;
-    margin: 2.5rem 0;
+    margin: 2rem 0 0;
   }
   .product-features li {
     list-style: none;
     display: flex;
     align-items: flex-start;
-    gap: 1rem;
-    font-size: 1rem;
+    gap: 0.9rem;
+    font-size: 0.95rem;
     color: rgba(240, 237, 232, 0.8);
     line-height: 1.5;
   }
   .product-features li::before {
     content: "";
-    width: 1.3rem;
-    height: 1.3rem;
-    min-width: 1.3rem;
+    width: 1.2rem;
+    height: 1.2rem;
+    min-width: 1.2rem;
     background: #d2a382;
-    border-radius: 0.35rem;
-    margin-top: 0.1rem;
+    border-radius: 0.3rem;
+    margin-top: 0.15rem;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 8' fill='none'%3E%3Cpath d='M1 4 3.5 6.5 9 1' stroke='white' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: center;
     background-size: 60%;
   }
   .specs-section {
-    margin-top: 2rem;
-    border-top: 1px solid rgba(240, 237, 232, 0.1);
+    margin-top: 2.5rem;
+    border-top: 1px solid rgba(240, 237, 232, 0.08);
     padding-top: 2rem;
   }
   .specs-section h3 {
-    font-size: 1.3rem;
-    margin-bottom: 1.25rem;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
     color: #f0ede8;
     font-weight: 500;
+    letter-spacing: 0.02em;
   }
   .specs-list { padding: 0; margin: 0; }
   .specs-list li {
@@ -114,12 +98,95 @@ const PAGE_STYLES = `
     display: flex;
     justify-content: space-between;
     gap: 2rem;
-    padding: 0.7rem 0;
+    padding: 0.6rem 0;
     border-bottom: 1px solid rgba(240, 237, 232, 0.05);
-    font-size: 0.9rem;
+    font-size: 0.88rem;
   }
-  .specs-list li span:first-child { color: rgba(240, 237, 232, 0.4); flex-shrink: 0; }
+  .specs-list li span:first-child { color: rgba(240, 237, 232, 0.35); flex-shrink: 0; }
   .specs-list li span:last-child { color: #f0ede8; font-weight: 500; text-align: right; }
+
+  /* Gallery */
+  .gallery-wrap { position: sticky; top: 6rem; }
+  .gallery-main {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    background: rgba(255,255,255,0.03);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+  }
+  .gallery-main img, .gallery-main video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .gallery-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(12,12,12,0.6);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: #f0ede8;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+    z-index: 2;
+    font-size: 1rem;
+    transition: background 0.2s;
+  }
+  .gallery-nav-btn:hover { background: rgba(210,163,130,0.3); }
+  .gallery-nav-btn.prev { left: 0.75rem; }
+  .gallery-nav-btn.next { right: 0.75rem; }
+  .gallery-thumbs {
+    display: flex;
+    gap: 0.6rem;
+    margin-top: 0.75rem;
+    flex-wrap: wrap;
+  }
+  .gallery-thumb {
+    width: 4.5rem;
+    height: 4.5rem;
+    border-radius: 0.6rem;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border-color 0.15s;
+    background: rgba(255,255,255,0.04);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .gallery-thumb.active { border-color: #d2a382; }
+  .gallery-thumb img, .gallery-thumb video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+  }
+  .gallery-video-badge {
+    position: absolute;
+    bottom: 0.75rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.6);
+    color: #f0ede8;
+    font-size: 0.75rem;
+    padding: 0.3rem 0.8rem;
+    border-radius: 999px;
+    backdrop-filter: blur(6px);
+    white-space: nowrap;
+    pointer-events: none;
+  }
   .not-found-section {
     padding: 10rem 5%;
     text-align: center;
@@ -127,10 +194,63 @@ const PAGE_STYLES = `
   @media (max-width: 900px) {
     .product-hero-grid { grid-template-columns: 1fr; gap: 3rem; }
     .product-hero-section { padding-top: 5rem; }
-    .product-image-container { transform: none; }
-    .product-image-container img { width: 100%; }
+    .gallery-wrap { position: static; }
   }
 `;
+
+function isVideo(src: string) {
+  return /\.(mp4|mov|webm)$/i.test(src);
+}
+
+function ProductGallery({ image, gallery }: { image: string; gallery?: string[] }) {
+  const items = gallery && gallery.length > 0 ? gallery : [image];
+  const [active, setActive] = useState(0);
+
+  function prev() { setActive((i) => (i - 1 + items.length) % items.length); }
+  function next() { setActive((i) => (i + 1) % items.length); }
+
+  const src = items[active];
+  const video = isVideo(src);
+
+  return (
+    <div className="gallery-wrap">
+      <div className="gallery-main">
+        {video ? (
+          <video key={src} src={src} autoPlay muted loop playsInline controls={false} />
+        ) : (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img key={src} src={src} alt="" />
+        )}
+        {video && <div className="gallery-video-badge">▶ видео</div>}
+        {items.length > 1 && (
+          <>
+            <button className="gallery-nav-btn prev" onClick={prev} aria-label="Предыдущее">‹</button>
+            <button className="gallery-nav-btn next" onClick={next} aria-label="Следующее">›</button>
+          </>
+        )}
+      </div>
+
+      {items.length > 1 && (
+        <div className="gallery-thumbs">
+          {items.map((item, i) => (
+            <div
+              key={i}
+              className={`gallery-thumb${i === active ? " active" : ""}`}
+              onClick={() => setActive(i)}
+            >
+              {isVideo(item) ? (
+                <video src={item} muted playsInline />
+              ) : (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img src={item} alt="" />
+              )}
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
 
 export default function ProductSlugPage() {
   const params = useParams();
@@ -175,6 +295,10 @@ export default function ProductSlugPage() {
         ) : (
           <section className="product-hero-section">
             <div className="product-hero-grid">
+              {/* LEFT: gallery */}
+              <ProductGallery image={product.image} gallery={product.gallery} />
+
+              {/* RIGHT: info */}
               <div className="product-info">
                 <span className="product-category-label">{product.category}</span>
                 <h1 className="product-title-text">{product.name}</h1>
@@ -193,7 +317,7 @@ export default function ProductSlugPage() {
                     className="primary-button w-inline-block"
                     style={{
                       background: "none",
-                      border: "1px solid rgba(255,255,255,0.3)",
+                      border: "1px solid rgba(255,255,255,0.25)",
                       cursor: "pointer",
                       display: "flex",
                       alignItems: "center",
@@ -227,17 +351,12 @@ export default function ProductSlugPage() {
                 )}
 
                 {product.features.length > 0 && (
-                  <ul className="product-features" style={{ marginTop: product.specs.length > 0 ? "2rem" : "0" }}>
+                  <ul className="product-features">
                     {product.features.map((f) => (
                       <li key={f}>{f}</li>
                     ))}
                   </ul>
                 )}
-              </div>
-
-              <div className="product-image-container">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={product.image} alt={product.name} />
               </div>
             </div>
           </section>

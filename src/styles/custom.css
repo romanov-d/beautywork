@@ -106,16 +106,6 @@
   border-radius: 9999px !important;
 }
 
-/* Override all product images with SHR-BL */
-.video-card-visual__img,
-.card-asset-contain img,
-.lightbox-image,
-.product-hero-section img,
-.product-card img {
-  content: url('/images/SHR-BL-1000x1000.png') !important;
-  object-fit: contain !important;
-  object-position: bottom !important;
-}
 
 /* Аппаратная косметология background: darken (rotation baked into the image file) */
 .image-full.is-cosmeto-bg {

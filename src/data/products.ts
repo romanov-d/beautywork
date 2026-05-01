@@ -4,6 +4,7 @@ export interface ProductData {
   category: string;
   description: string;
   image: string;
+  gallery?: string[];
   cardSpecs: string[];
   specs: { label: string; value: string }[];
   features: string[];
@@ -18,6 +19,15 @@ const ALL_PRODUCTS: ProductData[] = [
     description:
       "Soprano Titanium 1600Вт — универсальное решение для лазерной эпиляции всех типов кожи и волос. Три длины волны в одной манипуле, усовершенствованная система охлаждения ICE TECH до −31°C и ресурс 100 млн вспышек. Новый корпус с тремя сменными насадками и защитным кейсом для транспортировки.",
     image: "/images/SHR-BL-1000x1000.png",
+    gallery: [
+      "/images/products/soprano-1600-black-1.jpg",
+      "/images/products/soprano-1600-black-2.jpg",
+      "/images/products/soprano-1600-black-3.jpg",
+      "/images/products/soprano-1600-black-4.jpg",
+      "/images/products/soprano-1600-black-5.jpg",
+      "/images/products/soprano-1600-black-6.jpg",
+      "/images/products/soprano-1600-black-7.jpg",
+    ],
     cardSpecs: [
       "3 длины волны: Alexandrite 755 нм, Diode 810 нм, Nd:YAG 1064 нм",
       "Охлаждение ICE TECH до −31°C · Ресурс 100 млн вспышек",
@@ -54,6 +64,13 @@ const ALL_PRODUCTS: ProductData[] = [
     description:
       "Soprano Titanium 1600Вт в элегантном белом исполнении с серебром. Три длины волны, охлаждение ICE TECH до −31°C, 100 млн вспышек ресурса. Новый корпус, три сменные насадки и защитный кейс в комплекте.",
     image: "/images/SHR-BL-1000x1000.png",
+    gallery: [
+      "/images/products/soprano-1600-white-1.jpg",
+      "/images/products/soprano-1600-white-2.jpg",
+      "/images/products/soprano-1600-white-3.jpg",
+      "/images/products/soprano-1600-white-4.jpg",
+      "/images/products/soprano-1600-white-5.jpg",
+    ],
     cardSpecs: [
       "3 длины волны: Alexandrite 755 нм, Diode 810 нм, Nd:YAG 1064 нм",
       "Охлаждение ICE TECH до −31°C · Ресурс 100 млн вспышек",
@@ -90,6 +107,11 @@ const ALL_PRODUCTS: ProductData[] = [
     description:
       "Комплектация Soprano Titanium 1600Вт с двумя манипулами и специальной насадкой для карбонового пилинга. Позволяет одновременно обслуживать двух клиентов или чередовать насадки без перерыва. Насадка для карбона открывает возможность процедуры карбонового пилинга на том же аппарате.",
     image: "/images/SHR-BL-1000x1000.png",
+    gallery: [
+      "/images/products/soprano-1600-black-1.jpg",
+      "/images/products/soprano-1600-black-2.jpg",
+      "/images/products/soprano-1600-black-3.jpg",
+    ],
     cardSpecs: [
       "3 длины волны: Alexandrite 755 нм, Diode 810 нм, Nd:YAG 1064 нм",
       "2 манипулы · Насадка для карбонового пилинга в комплекте",
@@ -119,6 +141,16 @@ const ALL_PRODUCTS: ProductData[] = [
     description:
       "Soprano Titanium 1200Вт в классическом корпусе — аналог израильского аппарата. Три длины волны, охлаждение ICE TECH, ресурс 100 млн вспышек. Проверенная надёжность в корпусе с современной начинкой Soprano.",
     image: "/images/SHR-BL-1000x1000.png",
+    gallery: [
+      "/images/products/soprano-1200-black-1.jpg",
+      "/images/products/soprano-1200-black-2.jpg",
+      "/images/products/soprano-1200-black-3.jpg",
+      "/images/products/soprano-1200-black-4.jpg",
+      "/images/products/soprano-1200-black-5.jpg",
+      "/images/products/soprano-1200-black-6.jpg",
+      "/images/products/soprano-1200-black-7.jpg",
+      "/images/products/soprano-1200-black-8.jpg",
+    ],
     cardSpecs: [
       "3 длины волны: Alexandrite 755 нм, Diode 810 нм, Nd:YAG 1064 нм",
       "Охлаждение ICE TECH до −31°C · Ресурс 100 млн вспышек",
@@ -155,6 +187,17 @@ const ALL_PRODUCTS: ProductData[] = [
     description:
       "Soprano Titanium 1200Вт в классическом корпусе белого цвета с серебром — аналог израильского аппарата. Три длины волны, охлаждение ICE TECH до −31°C, ресурс 100 млн вспышек.",
     image: "/images/SHR-BL-1000x1000.png",
+    gallery: [
+      "/images/products/soprano-1200-white-1.jpg",
+      "/images/products/soprano-1200-white-2.jpg",
+      "/images/products/soprano-1200-white-3.jpg",
+      "/images/products/soprano-1200-white-4.jpg",
+      "/images/products/soprano-1200-white-5.jpg",
+      "/images/products/soprano-1200-white-6.jpg",
+      "/images/products/soprano-1200-white-7.jpg",
+      "/images/products/soprano-1200-white-1.mp4",
+      "/images/products/soprano-1200-white-2.mp4",
+    ],
     cardSpecs: [
       "3 длины волны: Alexandrite 755 нм, Diode 810 нм, Nd:YAG 1064 нм",
       "Охлаждение ICE TECH до −31°C · Ресурс 100 млн вспышек",
@@ -242,6 +285,13 @@ const ALL_PRODUCTS: ProductData[] = [
     description:
       "Velashape Sculptor — комплексный аппарат для коррекции фигуры с 5 методиками в одном: инфракрасное излучение, радиочастотные волны (РФ), вакуум, механические ролики и кавитация. 5 специализированных манипул для работы с телом, лицом и деликатными зонами.",
     image: "/images/SHR-BL-1000x1000.png",
+    gallery: [
+      "/images/products/velashape-1.jpg",
+      "/images/products/velashape-2.jpg",
+      "/images/products/velashape-3.jpg",
+      "/images/products/velashape-4.jpg",
+      "/images/products/velashape-5.jpg",
+    ],
     cardSpecs: [
       "5 методик: ИК, РФ, вакуум, ролики, кавитация · 5 манипул",
       "Коррекция фигуры, антицеллюлитные программы",
@@ -275,6 +325,11 @@ const ALL_PRODUCTS: ProductData[] = [
     description:
       "Расширенная комплектация Velashape Sculptor с дополнительной вакуумной кавитацией. Увеличенная глубина воздействия на жировые клетки, усиленный лимфодренажный эффект.",
     image: "/images/SHR-BL-1000x1000.png",
+    gallery: [
+      "/images/products/velashape-1.jpg",
+      "/images/products/velashape-2.jpg",
+      "/images/products/velashape-3.jpg",
+    ],
     cardSpecs: [
       "5 методик: ИК, РФ, вакуум, ролики, кавитация · 5 манипул",
       "Расширенная вакуумная кавитация · Глубокая коррекция фигуры",
@@ -300,6 +355,12 @@ const ALL_PRODUCTS: ProductData[] = [
     description:
       "Morpheus MR 8 PRO — аппарат фракционного микроигольчатого RF лифтинга с 3 функциями: микроигольчатый РФ (M8), неинвазивный радиочастотный EMRF (аналог Thermage) и криотерапия. Большой экран, металлический корпус. Глубина воздействия до 8 мм — самая высокая на рынке.",
     image: "/images/SHR-BL-1000x1000.png",
+    gallery: [
+      "/images/products/morpheus-1.jpg",
+      "/images/products/morpheus-2.jpg",
+      "/images/products/morpheus-3.jpg",
+      "/images/products/morpheus-1.mp4",
+    ],
     cardSpecs: [
       "Микроигольчатый РФ + EMRF + Криотерапия · 3 манипулы",
       "Глубина воздействия до 8 мм · Омоложение и лифтинг",
@@ -381,6 +442,14 @@ const ALL_PRODUCTS: ProductData[] = [
     description:
       "Аппарат для эндосфера-терапии с компрессионной микровибрацией 151–200 Гц. Манипулы с 50 силиконовыми шариками для тела и 60 шариками для лица и шеи. Эффективность: 1 процедура = 10 ручным массажам. Активизирует кровообращение и лимфодренаж.",
     image: "/images/SHR-BL-1000x1000.png",
+    gallery: [
+      "/images/products/vibrosphere-1.jpg",
+      "/images/products/vibrosphere-2.jpg",
+      "/images/products/vibrosphere-3.jpg",
+      "/images/products/vibrosphere-4.jpg",
+      "/images/products/vibrosphere-1.mp4",
+      "/images/products/vibrosphere-2.mp4",
+    ],
     cardSpecs: [
       "50 силиконовых шариков для тела · 60 для лица и шеи",
       "Компрессионная микровибрация 151–200 Гц",
@@ -414,6 +483,11 @@ const ALL_PRODUCTS: ProductData[] = [
     description:
       "Аппарат для эндосфера-терапии с компрессионной микровибрацией в чёрном исполнении, дополненный встроенным жиромером для точного контроля результатов процедур и динамики изменений.",
     image: "/images/SHR-BL-1000x1000.png",
+    gallery: [
+      "/images/products/vibrosphere-1.jpg",
+      "/images/products/vibrosphere-2.jpg",
+      "/images/products/vibrosphere-1.mp4",
+    ],
     cardSpecs: [
       "Эндосфера-терапия · Компрессионная микровибрация 151–200 Гц",
       "Встроенный жиромер для точного контроля результатов",
@@ -438,6 +512,10 @@ const ALL_PRODUCTS: ProductData[] = [
     description:
       "Кушетка косметологическая «Эльза» — популярная модель с матрасом анатомической формы, отверстием для лица и съёмными подлокотниками. Оснащена пластиковыми лотками под мягким элементом. Раскладывается в горизонтальное положение. Подходит для косметологии и массажа.",
     image: "/images/SHR-BL-1000x1000.png",
+    gallery: [
+      "/images/products/elza-1.jpg",
+      "/images/products/elza-2.jpg",
+    ],
     cardSpecs: [
       "Эко-кожа · Анатомический матрас · Нагрузка 150–200 кг",
       "Ширина 64 см · Длина 178 см · Высота 60 см",
