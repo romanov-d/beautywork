@@ -82,7 +82,7 @@ export default function ProductsSlider({
                 role="listitem"
                 className="gsap-slider__item-copy w-dyn-item">
                 <div className="product-slide">
-                  <Link href={product.href} style={{ display: "block", textDecoration: "none", color: "inherit" }}>
+                  <Link href={product.href} style={{ display: "block", width: "100%", height: "100%", textDecoration: "none", color: "inherit" }}>
                     <div data-video-on-hover="not-active" className="product-card">
                       <div className="before__125" />
                       <div className="card-content">
