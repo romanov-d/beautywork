@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useEffect, createContext, useContext } from "react";
+import React, { useEffect, createContext, useContext, useRef } from "react";
 import Script from "next/script";
+import Lenis from "lenis";
 
 const AnimationContext = createContext<any>(null);
 
@@ -10,29 +11,21 @@ export function useAnimation() {
 }
 
 export default function AnimationProvider({ children }: { children: React.ReactNode }) {
-  useEffect(() => {
-    // We'll initialize everything once the scripts are loaded.
-    // The actual initialization logic will be in the onReady handlers of the Scripts.
-  }, []);
+  const lenisRef = useRef<Lenis | null>(null);
 
-  const initLenis = () => {
-    if (typeof window === "undefined" || !(window as any).Lenis) return;
-    
-    // Disable Lenis on mobile/touch devices to ensure native scroll works perfectly
-    if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
-      console.log("Lenis disabled on mobile/touch device");
-      return;
-    }
-    
-    const lenis = new (window as any).Lenis({
-      duration: 0.6,
-      easing: (t: number) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t)),
+  useEffect(() => {
+    // Initialize Lenis
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       direction: 'vertical',
+      gestureDirection: 'vertical',
       smooth: true,
       smoothTouch: false,
-      touchMultiplier: 1.5,
+      touchMultiplier: 2,
     });
 
+    lenisRef.current = lenis;
     (window as any).lenis = lenis;
 
     function raf(time: number) {
@@ -41,17 +34,35 @@ export default function AnimationProvider({ children }: { children: React.ReactN
     }
     requestAnimationFrame(raf);
 
-    // Integration with ScrollTrigger
-    if ((window as any).gsap && (window as any).ScrollTrigger) {
-      lenis.on('scroll', (window as any).ScrollTrigger.update);
-      (window as any).gsap.ticker.add((time: number) => {
-        lenis.raf(time * 1000);
-      });
-      (window as any).gsap.ticker.lagSmoothing(0);
-    }
+    // Global anchor scroll handler
+    const handleAnchorClick = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      const link = target.closest("a");
+      
+      if (link && link.hash && (link.pathname === window.location.pathname || link.pathname === "/")) {
+        const id = link.hash.slice(1);
+        const element = document.getElementById(id);
+        
+        if (element) {
+          e.preventDefault();
+          lenis.scrollTo(element, {
+            offset: -100, // Account for sticky header
+            duration: 1.5,
+          });
+          
+          // Update URL without jump
+          window.history.pushState(null, "", `#${id}`);
+        }
+      }
+    };
 
-    console.log("Lenis initialized");
-  };
+    window.addEventListener("click", handleAnchorClick);
+
+    return () => {
+      lenis.destroy();
+      window.removeEventListener("click", handleAnchorClick);
+    };
+  }, []);
 
   const initAnimations = () => {
     const gsap = (window as any).gsap;
@@ -179,12 +190,10 @@ export default function AnimationProvider({ children }: { children: React.ReactN
 
   return (
     <AnimationContext.Provider value={{}}>
-      <Script src="/scripts/lenis.js" strategy="afterInteractive" />
       <Script src="/scripts/gsap.min.js" strategy="afterInteractive" />
       <Script src="/scripts/ScrollTrigger.min.js" strategy="afterInteractive" />
       <Script src="/scripts/Draggable.min.js" strategy="afterInteractive" />
       <Script src="/scripts/InertiaPlugin.min.js" strategy="afterInteractive" onReady={() => {
-        initLenis();
         initAnimations();
       }} />
       {children}

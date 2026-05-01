@@ -3,13 +3,17 @@
 import { useState } from "react";
 import Link from "next/link";
 import ArrowIcon from "../ArrowIcon";
+import { useCart } from "@/context/CartContext";
 
 export interface Product {
+  id: string;
   name: string;
   category: string;
   categoryColor: string;
   image: string;
   href: string;
+  price: number;
+  specs: string[];
 }
 
 interface ProductsSliderProps {
@@ -28,12 +32,27 @@ export default function ProductsSlider({
   sliderClass = "gsap-slider--one"
 }: ProductsSliderProps) {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [addedId, setAddedId] = useState<string | null>(null);
+  const { addItem } = useCart();
 
   const goTo = (direction: "prev" | "next") => {
     setActiveIndex((prev) => {
       if (direction === "next") return Math.min(prev + 1, products.length - 1);
       return Math.max(prev - 1, 0);
     });
+  };
+
+  const handleAddToCart = (product: Product) => {
+    addItem({
+      id: product.id,
+      name: product.name,
+      category: product.category,
+      price: product.price,
+      image: product.image,
+      specs: product.specs,
+    });
+    setAddedId(product.id);
+    setTimeout(() => setAddedId(null), 1500);
   };
 
   return (
@@ -83,11 +102,22 @@ export default function ProductsSlider({
                         </div>
                         <div className="card-buttons-wrap">
                           <div className="card-buttons-flex">
-                            <Link data-button="" href="/cart"
+                            <button
+                              type="button"
+                              onClick={() => handleAddToCart(product)}
                               className="primary-button is-p-l w-inline-block"
-                              style={{ backgroundColor: product.categoryColor }}>
-                              <div data-button-text="">В корзину</div>
-                            </Link>
+                              style={{
+                                backgroundColor: addedId === product.id ? "#4a7a40" : product.categoryColor,
+                                cursor: "pointer",
+                                border: "none",
+                                whiteSpace: "nowrap",
+                                minWidth: "fit-content",
+                              }}
+                            >
+                              <div data-button-text="" style={{ whiteSpace: "nowrap" }}>
+                                {addedId === product.id ? "Добавлено ✓" : "В корзину"}
+                              </div>
+                            </button>
                             <Link data-button="" href={product.href}
                               className="primary-button is-p-r w-inline-block">
                               <ArrowIcon />

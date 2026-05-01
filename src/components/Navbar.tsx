@@ -3,6 +3,8 @@
 import { useEffect, useState, useCallback } from "react";
 import Link from "next/link";
 import ArrowIcon from "./ArrowIcon";
+import { useCart } from "@/context/CartContext";
+import { ShoppingCart } from "@phosphor-icons/react";
 
 interface NavbarProps {
   onOpenModal: () => void;
@@ -21,16 +23,11 @@ function UserIcon() {
 }
 
 function CartIcon() {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
-      <line x1="3" y1="6" x2="21" y2="6" />
-      <path d="M16 10a4 4 0 0 1-8 0" />
-    </svg>
-  );
+  return <ShoppingCart size={22} weight="duotone" />;
 }
 
 export default function Navbar({ onOpenModal }: NavbarProps) {
+  const { count } = useCart();
   const [isDark, setIsDark] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [openAccordion, setOpenAccordion] = useState<number | null>(null);
@@ -119,7 +116,7 @@ export default function Navbar({ onOpenModal }: NavbarProps) {
       {/* ===== Desktop navbar ===== */}
       <div data-load-nav="" data-nav-dropdown="" className={`nav-bar is-main${isDark ? ' is-dark-nav' : ''}`}>
         <div id="w-node-a9fcd343-232f-f2a3-62ff-4d3bbaa4e17b-baa4e179" className="nav-left">
-          <Link href="/" aria-current="page" className="nav-logo w-inline-block w--current">
+          <Link href="/" className="nav-logo w-inline-block">
             <span style={{
               display: "inline-block", fontFamily: "'Kudryashev Display Sans', Arial, sans-serif", fontWeight: 700,
               fontSize: "18px", letterSpacing: "0.05em", color: "#d2a382",
@@ -129,19 +126,26 @@ export default function Navbar({ onOpenModal }: NavbarProps) {
         </div>
 
         <div id="w-node-a9fcd343-232f-f2a3-62ff-4d3bbaa4e183-baa4e179" className="nav-middle">
-          <Link href="#catalog" className="nav-link is-light">Каталог</Link>
+          <Link href="/#catalog" className="nav-link is-light">Каталог</Link>
           <div className="nav-divider" />
-          <Link href="#about" className="nav-link is-light">О нас</Link>
+          <Link href="/#about" className="nav-link is-light">О нас</Link>
           <div className="nav-divider" />
-          <Link href="#reviews" className="nav-link is-light">Отзывы</Link>
-          <div className="nav-divider" />
-          <Link href="/cart" className="nav-link is-light">Корзина</Link>
+          <Link href="/#reviews" className="nav-link is-light">Отзывы</Link>
         </div>
 
-        <div id="w-node-a9fcd343-232f-f2a3-62ff-4d3bbaa4e18f-baa4e179" className="nav-right">
-          <Link href="/products/elza" data-button="" className="login-button w-inline-block" target="_blank" style={{ backgroundColor: "#d2a382" }}>
+        <div id="w-node-a9fcd343-232f-f2a3-62ff-4d3bbaa4e18f-baa4e179" className="nav-right" style={{ display: "flex", alignItems: "center", gap: "1.5rem" }}>
+          <a 
+            href="#" 
+            className="login-button w-inline-block" 
+            style={{ backgroundColor: "#d2a382" }}
+            onClick={(e) => { e.preventDefault(); onOpenModal(); }}
+          >
             <UserIcon />
             <div data-button-text="">Оставить заявку</div>
+          </a>
+          <Link href="/cart" className="nav-link is-light cart-link-wrapper">
+            <CartIcon />
+            {count > 0 && <span className="cart-counter">{count}</span>}
           </Link>
         </div>
       </div>
@@ -159,13 +163,16 @@ export default function Navbar({ onOpenModal }: NavbarProps) {
           </button>
         </div>
         <div className="mob-logo">
-          <Link href="/" aria-current="page" className="nav-logo w-inline-block w--current" style={{ textDecoration: "none" }}>
+          <Link href="/" className="nav-logo w-inline-block" style={{ textDecoration: "none" }}>
             <span style={{ color: "currentColor", textDecoration: "none" }}>КРАСИВОЕ ДЕЛО</span>
           </Link>
         </div>
         <div className="login-container">
           <Link href="/cart" className="mobile-cart-btn" onClick={() => setMenuOpen(false)}>
-            <CartIcon />
+            <div className="cart-link-wrapper">
+              <CartIcon />
+              {count > 0 && <span className="cart-counter">{count}</span>}
+            </div>
           </Link>
         </div>
       </div>
@@ -234,10 +241,14 @@ export default function Navbar({ onOpenModal }: NavbarProps) {
             </div>
 
             <div className="login-mobile">
-              <Link href="/products/elza" className="primary-button is-menu w-inline-block" target="_blank" onClick={closeMenu}>
+              <a 
+                href="#" 
+                className="primary-button is-menu w-inline-block" 
+                onClick={(e) => { e.preventDefault(); closeMenu(); onOpenModal(); }}
+              >
                 <ArrowIcon />
                 <div>Оставить заявку</div>
-              </Link>
+              </a>
               <div className="mobile-divider" />
             </div>
           </div>

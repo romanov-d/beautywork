@@ -182,6 +182,31 @@ h3.heading-5.is-process,
   /* Prevent giant button */
 }
 
+/* Cart badge */
+.cart-link-wrapper {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.cart-counter {
+  position: absolute !important;
+  top: -8px !important;
+  right: -10px !important;
+  background: #d2a382 !important;
+  color: #fff !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  width: 18px !important;
+  height: 18px !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border: 1.5px solid #0c0c0c !important;
+  line-height: 1 !important;
+}
+
 /* Navbar — белый текст всегда */
 .nav-bar.is-main {
   position: fixed !important;
@@ -206,10 +231,29 @@ h3.heading-5.is-process,
   padding: 0 2rem !important;
 }
 
+.nav-left {
+  flex: 1 !important;
+  display: flex !important;
+  justify-content: flex-start !important;
+  padding: 0 !important;
+}
+
+.nav-middle {
+  flex: 0 0 auto !important;
+  display: flex !important;
+  justify-content: center !important;
+  gap: 1.5rem !important;
+  padding: 0 !important;
+}
+
 .nav-right {
+  flex: 1 !important;
   display: flex !important;
   align-items: center !important;
   height: 100% !important;
+  gap: 1.5rem !important;
+  justify-content: flex-end !important;
+  padding: 0 !important;
 }
 
 .login-button {
@@ -1126,6 +1170,16 @@ h3.heading-5.is-process,
     width: 100% !important;
   }
 
+  .footer-heading-wrapper {
+    order: 1 !important;
+  }
+
+  .quicklinks-div {
+    width: 100% !important;
+    text-align: center !important;
+    order: 3 !important;
+  }
+
   .is-ft {
     width: 100% !important;
     display: flex !important;
@@ -1165,9 +1219,9 @@ h3.heading-5.is-process,
     display: flex !important;
     justify-content: center !important;
     width: 100% !important;
-    margin-top: 2rem !important;
-    margin-bottom: 2rem !important;
-    /* Space below button */
+    margin-top: 1rem !important;
+    margin-bottom: 3rem !important;
+    order: 2 !important; /* Raised: after heading, before menu blocks */
   }
 
   .primary-button.is-footer {
@@ -1234,6 +1288,7 @@ h3.heading-5.is-process,
     .quicklinks-div {
       width: 100% !important;
       text-align: center !important;
+      order: 3 !important;
     }
 
     .subheading.is-white {

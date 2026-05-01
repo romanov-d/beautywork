@@ -7,7 +7,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "goodlifemeds.b-cdn.net",
+        hostname: "krasivoedelo.com",
       },
     ],
   },

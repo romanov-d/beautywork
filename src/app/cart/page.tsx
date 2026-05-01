@@ -1,69 +1,22 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Navbar from "@/components/Navbar";
 import Modal from "@/components/Modal";
 import Footer from "@/components/Footer";
 import ArrowIcon from "@/components/ArrowIcon";
 import Link from "next/link";
-
-interface CartItem {
-  id: string;
-  name: string;
-  category: string;
-  price: number;
-  qty: number;
-  image: string;
-  specs: string[];
-}
-
-const INITIAL_ITEMS: CartItem[] = [
-  {
-    id: "soprano-titanium",
-    name: "Soprano Titanium 1600Вт",
-    category: "Лазерная эпиляция",
-    price: 4890000,
-    qty: 1,
-    image: "/images/SHR-BL-1000x1000.png",
-    specs: [
-      "Комплектация: 3 манипулы (755 / 810 / 1064 нм)",
-      "Гарантия: 12 месяцев",
-      "Доставка: 5–10 рабочих дней"
-    ]
-  },
-  {
-    id: "morpheus-mr8",
-    name: "Morpheus MR 8 PRO",
-    category: "Аппаратная косметология",
-    price: 3150000,
-    qty: 1,
-    image: "/images/SHR-BL-1000x1000.png",
-    specs: [
-      "Комплектация: RF-лифтинг + микроигольчатая терапия, 3 манипулы",
-      "Гарантия: 12 месяцев",
-      "Профессиональное обучение мастеров"
-    ]
-  },
-  {
-    id: "elsa-couch",
-    name: "Кушетка «Эльза»",
-    category: "Мебель для салонов",
-    price: 92000,
-    qty: 2,
-    image: "/images/SHR-BL-1000x1000.png",
-    specs: [
-      "Экокожа премиум-класса, 3 секции",
-      "Грузоподъёмность до 250 кг",
-      "Пульт управления в комплекте"
-    ]
-  }
-];
+import { useCart } from "@/context/CartContext";
 
 export default function CartPage() {
   const [modalOpen, setModalOpen] = useState(false);
-  const [items, setItems] = useState<CartItem[]>(INITIAL_ITEMS);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const [isMounted, setIsMounted] = useState(false);
+  const formRef = useRef<HTMLFormElement>(null);
+
+  const { items, updateQty, removeItem, clearCart } = useCart();
 
   useEffect(() => {
     setIsMounted(true);
@@ -74,28 +27,45 @@ export default function CartPage() {
     };
   }, []);
 
-  const updateQty = (id: string, delta: number) => {
-    setItems(prev => prev.map(item => {
-      if (item.id === id) {
-        const newQty = Math.min(99, Math.max(1, item.qty + delta));
-        return { ...item, qty: newQty };
-      }
-      return item;
-    }));
-  };
-
-  const removeItem = (id: string) => {
-    setItems(prev => prev.filter(item => item.id !== id));
-  };
-
-  const total = items.reduce((acc, item) => acc + item.price * item.qty, 0);
-  const fmt = new Intl.NumberFormat('ru-RU');
-  const money = (n: number) => fmt.format(n) + ' ₽';
-
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: { preventDefault(): void; currentTarget: HTMLFormElement }) => {
     e.preventDefault();
-    setIsSuccess(true);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    setIsSubmitting(true);
+    setSubmitError(null);
+
+    const data = new FormData(e.currentTarget);
+    const form = {
+      company: data.get("company") as string,
+      entity_type: data.get("entity_type") as string,
+      inn: data.get("inn") as string,
+      kpp: data.get("kpp") as string,
+      legal_address: data.get("legal_address") as string,
+      contact_name: data.get("contact_name") as string,
+      contact_role: data.get("contact_role") as string,
+      phone: data.get("phone") as string,
+      email: data.get("email") as string,
+      telegram: data.get("telegram") as string,
+    };
+
+    try {
+      const res = await fetch("/api/order", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ items, form }),
+      });
+
+      if (!res.ok) {
+        throw new Error("Ошибка отправки. Попробуйте ещё раз или позвоните нам.");
+      }
+
+      clearCart();
+      setIsSuccess(true);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } catch (err) {
+      setSubmitError(err instanceof Error ? err.message : "Что-то пошло не так.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (!isMounted) return null;
@@ -128,124 +98,122 @@ export default function CartPage() {
 
         <section className="cart-section">
           <div className="cart-container">
-            {items.length > 0 ? (
-              <div className="cart-grid">
-                <div className="cart-items-col">
-                  <div className="cart-block-head">
-                    <div className="subheading">Товары в заявке</div>
-                    <div className="cart-block-count"><span>{items.length}</span> позиции</div>
-                  </div>
-
-                  <div className="cart-list">
-                    {items.map(item => (
-                      <article key={item.id} className="cart-item">
-                        <div className="cart-item-visual">
-                          <img src={item.image} alt={item.name} loading="lazy" className="cart-item-img" />
-                        </div>
-                        <div className="cart-item-body">
-                          <div className="cart-item-meta">
-                            <div className="subheading">{item.category}</div>
-                            <h3 className="heading-5 is-cart-item">{item.name}</h3>
-                            <ul className="cart-item-specs">
-                              {item.specs.map((spec, i) => <li key={i}>{spec}</li>)}
-                            </ul>
-                          </div>
-                          <div className="cart-item-actions">
-                            <div className="cart-qty" role="group" aria-label="Количество">
-                              <button type="button" className="cart-qty-btn" onClick={() => updateQty(item.id, -1)}>−</button>
-                              <input type="text" className="cart-qty-input" value={item.qty} readOnly aria-label="Количество" />
-                              <button type="button" className="cart-qty-btn" onClick={() => updateQty(item.id, 1)}>+</button>
-                            </div>
-                            <div className="cart-item-price">
-                              <div className="subheading is-dark">Стоимость</div>
-                              <div className="heading-5 is-price">{money(item.price * item.qty)}</div>
-                            </div>
-                            <button type="button" className="cart-remove" onClick={() => removeItem(item.id)}>
-                              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-                                <path d="M1 1L13 13M13 1L1 13" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
-                              </svg>
-                              <span>Удалить</span>
-                            </button>
-                          </div>
-                        </div>
-                      </article>
-                    ))}
-                  </div>
-
-                  <div className="cart-promo">
-                    <div className="cart-promo-text">
-                      <div className="subheading is-dark">Бонусы заявки</div>
-                      <h3 className="heading-5 is-cart-promo">Запуск и сервис — уже в стоимости</h3>
-                      <p className="is-cm">Инженер привезёт и установит оборудование, а сервисный центр в Москве закроет любое обслуживание на весь срок работы с аппаратом.</p>
+            <div className="cart-grid">
+              <div className="cart-items-col">
+                {items.length > 0 ? (
+                  <>
+                    <div className="cart-block-head">
+                      <div className="subheading">Товары в заявке</div>
+                      <div className="cart-block-count"><span>{items.length}</span> {items.length === 1 ? "позиция" : items.length < 5 ? "позиции" : "позиций"}</div>
                     </div>
-                    <ul className="cart-promo-list">
-                      <li><span>01</span>Гарантия 12 месяцев от производителя</li>
-                      <li><span>02</span>Профессиональное обучение мастеров</li>
-                      <li><span>03</span>Собственный склад и сервис в Москве</li>
-                      <li><span>04</span>Отгрузка в регионы за 5–10 дней</li>
-                    </ul>
+
+                    <div className="cart-list">
+                      {items.map(item => (
+                        <article key={item.id} className="cart-item">
+                          <div className="cart-item-visual">
+                            <img src={item.image} alt={item.name} loading="lazy" className="cart-item-img" />
+                          </div>
+                          <div className="cart-item-body">
+                            <div className="cart-item-meta">
+                              <div className="subheading">{item.category}</div>
+                              <h3 className="heading-5 is-cart-item">{item.name}</h3>
+                              <ul className="cart-item-specs">
+                                {item.specs.map((spec, i) => <li key={i}>{spec}</li>)}
+                              </ul>
+                            </div>
+                            <div className="cart-item-actions">
+                              <div className="cart-qty" role="group" aria-label="Количество">
+                                <button type="button" className="cart-qty-btn" onClick={() => updateQty(item.id, -1)}>−</button>
+                                <input type="text" className="cart-qty-input" value={item.qty} readOnly aria-label="Количество" />
+                                <button type="button" className="cart-qty-btn" onClick={() => updateQty(item.id, 1)}>+</button>
+                              </div>
+                              <button type="button" className="cart-remove" onClick={() => removeItem(item.id)}>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                                  <path d="M1 1L13 13M13 1L1 13" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+                                </svg>
+                                <span>Удалить</span>
+                              </button>
+                            </div>
+                          </div>
+                        </article>
+                      ))}
+                    </div>
+                  </>
+                ) : (
+                  <div className="cart-empty-hint">
+                    <p className="subheading" style={{ marginBottom: "0.5rem" }}>Товары не выбраны</p>
+                    <p className="is-cm" style={{ marginBottom: "1.25rem", maxWidth: "38ch" }}>Можно добавить оборудование из каталога — тогда менеджер сразу поймёт, что вас интересует. Или просто оставьте контакт — разберёмся вместе.</p>
+                    <button onClick={() => setModalOpen(true)} className="primary-button is-secondary w-inline-block" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem" }}>
+                      <ArrowIcon />
+                      <div data-button-text="">Посмотреть каталог</div>
+                    </button>
                   </div>
+                )}
+
+                <div className="cart-promo">
+                  <div className="cart-promo-text">
+                    <div className="subheading is-dark">Бонусы заявки</div>
+                    <h3 className="heading-5 is-cart-promo">Запуск и сервис — уже в стоимости</h3>
+                    <p className="is-cm">Инженер привезёт и установит оборудование, а сервисный центр в Москве закроет любое обслуживание на весь срок работы с аппаратом.</p>
+                  </div>
+                  <ul className="cart-promo-list">
+                    <li><span>01</span>Гарантия 12 месяцев от производителя</li>
+                    <li><span>02</span>Профессиональное обучение мастеров</li>
+                    <li><span>03</span>Собственный склад и сервис в Москве</li>
+                    <li><span>04</span>Отгрузка в регионы за 5–10 дней</li>
+                  </ul>
+                </div>
+              </div>
+
+              <aside className="cart-summary-col">
+                <div className="cart-summary">
+                  <div className="cart-summary-head">
+                    <div className="subheading is-white">Заявка</div>
+                    <h2 className="hero-heading is-cart-summary">
+                      {items.length > 0
+                        ? <>{items.length} {items.length === 1 ? "позиция" : items.length < 5 ? "позиции" : "позиций"}</>
+                        : <>Без товаров</>}
+                    </h2>
+                  </div>
+                  <div className="cart-summary-rows">
+                    <div className="cart-summary-row">
+                      <span>Доставка по Москве</span>
+                      <span>Бесплатно</span>
+                    </div>
+                    <div className="cart-summary-row">
+                      <span>Пуско-наладка</span>
+                      <span>Включена</span>
+                    </div>
+                    <div className="cart-summary-row is-dotted">
+                      <span>Обучение мастеров</span>
+                      <span>Включено</span>
+                    </div>
+                  </div>
+                  <div className="cart-summary-note">
+                    <p>Стоимость фиксируется в коммерческом предложении. Менеджер выставит счёт на юридическое лицо без предоплаты.</p>
+                  </div>
+                  <a href="#request-form" className="primary-button is-cart-cta w-inline-block">
+                    <ArrowIcon />
+                    <div data-button-text="">Перейти к оформлению</div>
+                  </a>
                 </div>
 
-                <aside className="cart-summary-col">
-                  <div className="cart-summary">
-                    <div className="cart-summary-head">
-                      <div className="subheading is-white">Сумма заявки</div>
-                      <h2 className="hero-heading is-cart-summary">Итого <span>{money(total)}</span></h2>
-                    </div>
-                    <div className="cart-summary-rows">
-                      <div className="cart-summary-row">
-                        <span>Оборудование ({items.length})</span>
-                        <span>{money(total)}</span>
-                      </div>
-                      <div className="cart-summary-row">
-                        <span>Доставка по Москве</span>
-                        <span>Бесплатно</span>
-                      </div>
-                      <div className="cart-summary-row">
-                        <span>Пуско-наладка</span>
-                        <span>Включена</span>
-                      </div>
-                      <div className="cart-summary-row is-dotted">
-                        <span>НДС 20%</span>
-                        <span>Включён в цену</span>
-                      </div>
-                    </div>
-                    <div className="cart-summary-note">
-                      <p>Итоговая стоимость фиксируется в коммерческом предложении. Счёт выставляется на указанное юридическое лицо без предоплаты.</p>
-                    </div>
-                    <a href="#request-form" className="primary-button is-cart-cta w-inline-block">
-                      <ArrowIcon />
-                      <div data-button-text="">Перейти к оформлению</div>
-                    </a>
+                <div className="cart-assurance">
+                  <div className="cart-assurance-item">
+                    <div className="subheading">01</div>
+                    <p className="is-cm">Работаем только с юридическими лицами и ИП. Документы — УПД, договор, счёт-фактура.</p>
                   </div>
-
-                  <div className="cart-assurance">
-                    <div className="cart-assurance-item">
-                      <div className="subheading">01</div>
-                      <p className="is-cm">Работаем только с юридическими лицами и ИП. Документы — УПД, договор, счёт-фактура.</p>
-                    </div>
-                    <div className="cart-assurance-item">
-                      <div className="subheading">02</div>
-                      <p className="is-cm">Менеджер отдела продаж свяжется в течение рабочего дня, чтобы согласовать спецификацию.</p>
-                    </div>
-                    <div className="cart-assurance-item">
-                      <div className="subheading">03</div>
-                      <p className="is-cm">Резерв оборудования на складе — до подписания договора, без предоплаты.</p>
-                    </div>
+                  <div className="cart-assurance-item">
+                    <div className="subheading">02</div>
+                    <p className="is-cm">Менеджер отдела продаж свяжется в течение рабочего дня, чтобы согласовать спецификацию.</p>
                   </div>
-                </aside>
-              </div>
-            ) : (
-              <div className="cart-empty">
-                <h3 className="heading-5 is-cart-item">Корзина пуста</h3>
-                <p className="is-cm">Добавьте оборудование из каталога, чтобы оформить заявку.</p>
-                <button onClick={() => setModalOpen(true)} className="primary-button w-inline-block">
-                  <ArrowIcon />
-                  <div data-button-text="">Открыть каталог</div>
-                </button>
-              </div>
-            )}
+                  <div className="cart-assurance-item">
+                    <div className="subheading">03</div>
+                    <p className="is-cm">Резерв оборудования на складе — до подписания договора, без предоплаты.</p>
+                  </div>
+                </div>
+              </aside>
+            </div>
           </div>
         </section>
 
@@ -262,7 +230,7 @@ export default function CartPage() {
                       <div className="subheading">Отдел продаж</div>
                       <a href="tel:+74951234567" className="body-large is-link">+7 (495) 123-45-67</a>
                       <br />
-                      <a href="mailto:sales@krasivoe-delo.ru" className="body-large is-link">sales@krasivoe-delo.ru</a>
+                      <a href="mailto:sales@krasivoedelo.com" className="body-large is-link">sales@krasivoedelo.com</a>
                     </div>
                     <div className="cart-form-contact">
                       <div className="subheading">Режим работы</div>
@@ -272,7 +240,7 @@ export default function CartPage() {
                   </div>
                 </div>
 
-                <form onSubmit={handleSubmit} className="cart-form is-dark">
+                <form ref={formRef} onSubmit={handleSubmit} className="cart-form is-dark">
                   <div className="cart-form-section-title">
                     <div className="subheading">Компания</div>
                     <h3 className="heading-5 is-form-section">Данные организации</h3>
@@ -340,6 +308,13 @@ export default function CartPage() {
                     </label>
                   </div>
 
+                  <div className="cart-form-row is-1">
+                    <label className="cart-field">
+                      <span className="cart-field-label">Telegram</span>
+                      <input type="text" name="telegram" className="cart-input w-input" placeholder="@username или номер телефона" />
+                    </label>
+                  </div>
+
                   <div className="cart-form-checks">
                     <label className="cart-check">
                       <input type="checkbox" name="agree_terms" className="cart-check-input" required />
@@ -348,10 +323,23 @@ export default function CartPage() {
                     </label>
                   </div>
 
+                  {submitError && (
+                    <div style={{ color: "#e57373", fontSize: "0.9rem", marginBottom: "1rem" }}>
+                      {submitError}
+                    </div>
+                  )}
+
                   <div className="cart-form-submit">
-                    <button type="submit" className="primary-button is-cart-submit w-button">
+                    <button
+                      type="submit"
+                      className="primary-button is-cart-submit w-button"
+                      disabled={isSubmitting}
+                      style={{ opacity: isSubmitting ? 0.7 : 1 }}
+                    >
                       <ArrowIcon />
-                      <span data-button-text>Отправить заявку на счёт</span>
+                      <span data-button-text>
+                        {isSubmitting ? "Отправляем..." : "Отправить заявку на счёт"}
+                      </span>
                     </button>
                     <p className="cart-form-submit-note">Нажимая «Отправить заявку», вы подтверждаете корректность реквизитов. Менеджер перезвонит в течение рабочего дня.</p>
                   </div>

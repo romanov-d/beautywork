@@ -6,41 +6,111 @@ import ArrowIcon from "../ArrowIcon";
 
 const laserProducts: Product[] = [
   {
-    name: "Soprano Titanium 1600Вт — Чёрный",
-    category: "Лазер для эпиляции, манипула 1600Вт",
+    id: "soprano-titanium-1600-black-gold",
+    name: "Soprano Titanium 1600Вт — Чёрный с золотом",
+    category: "Лазер для эпиляции · Новинка 2025",
     categoryColor: "#6a8360",
-    image: "/images/product-soprano-black.avif",
-    href: "/products/soprano-titanium",
+    image: "/images/SHR-BL-1000x1000.png",
+    href: "/products/soprano-titanium-1600-black-gold",
+    price: 0,
+    specs: [
+      "3 длины волны: Alexandrite 755 нм, Diode 810 нм, Nd:YAG 1064 нм",
+      "Охлаждение ICE TECH до -31°C · Ресурс 100 млн вспышек",
+      "Новый корпус · 3 сменные насадки · Защитный кейс",
+    ],
   },
   {
-    name: "Soprano Titanium 1600Вт — Белый",
-    category: "Лазер для эпиляции, манипула 1600Вт",
+    id: "soprano-titanium-1600-white-silver",
+    name: "Soprano Titanium 1600Вт — Белый с серебром",
+    category: "Лазер для эпиляции · Новинка 2025",
     categoryColor: "#6a8360",
-    image: "/images/product-soprano-white.avif",
-    href: "/products/soprano-titanium",
+    image: "/images/SHR-BL-1000x1000.png",
+    href: "/products/soprano-titanium-1600-white-silver",
+    price: 0,
+    specs: [
+      "3 длины волны: Alexandrite 755 нм, Diode 810 нм, Nd:YAG 1064 нм",
+      "Охлаждение ICE TECH до -31°C · Ресурс 100 млн вспышек",
+      "Новый корпус · 3 сменные насадки · Защитный кейс",
+    ],
   },
   {
-    name: "Soprano Titanium 1200Вт — Белый",
-    category: "Лазер для эпиляции, манипула 1200Вт",
+    id: "soprano-titanium-1200-black-gold",
+    name: "Soprano Titanium 1200Вт — Чёрный с золотом",
+    category: "Лазер для эпиляции",
     categoryColor: "#6a8360",
-    image: "/images/product-soprano-1200-white.avif",
-    href: "/products/soprano-titanium",
+    image: "/images/SHR-BL-1000x1000.png",
+    href: "/products/soprano-titanium-1200-black-gold",
+    price: 0,
+    specs: [
+      "3 длины волны: Alexandrite 755 нм, Diode 810 нм, Nd:YAG 1064 нм",
+      "Охлаждение ICE TECH до -31°C · Ресурс 100 млн вспышек",
+      "Классический корпус · 3 сменные насадки · Защитный кейс",
+    ],
   },
   {
-    name: "Soprano Titanium 1200Вт — Золотой",
-    category: "Лазер для эпиляции, манипула 1200Вт",
+    id: "soprano-titanium-1200-white-silver",
+    name: "Soprano Titanium 1200Вт — Белый с серебром",
+    category: "Лазер для эпиляции",
     categoryColor: "#6a8360",
-    image: "/images/product-soprano-1200-gold.png",
-    href: "/products/soprano-titanium",
+    image: "/images/SHR-BL-1000x1000.png",
+    href: "/products/soprano-titanium-1200-white-silver",
+    price: 0,
+    specs: [
+      "3 длины волны: Alexandrite 755 нм, Diode 810 нм, Nd:YAG 1064 нм",
+      "Охлаждение ICE TECH до -31°C · Ресурс 100 млн вспышек",
+      "Классический корпус · 3 сменные насадки · Защитный кейс",
+    ],
+  },
+  {
+    id: "soprano-titanium-1600-carbon-2handles",
+    name: "Soprano Titanium 1600Вт — 2 манипулы + насадка для карбона",
+    category: "Лазер для эпиляции · Новинка 2025",
+    categoryColor: "#6a8360",
+    image: "/images/SHR-BL-1000x1000.png",
+    href: "/products/soprano-titanium-1600-carbon-2handles",
+    price: 0,
+    specs: [
+      "3 длины волны: Alexandrite 755 нм, Diode 810 нм, Nd:YAG 1064 нм",
+      "2 манипулы · Насадка для карбонового пилинга в комплекте",
+      "Охлаждение ICE TECH до -31°C · Ресурс 100 млн вспышек",
+    ],
+  },
+  {
+    id: "soprano-titanium-compact",
+    name: "Soprano Titanium — Компакт (новый корпус)",
+    category: "Лазер для эпиляции",
+    categoryColor: "#6a8360",
+    image: "/images/SHR-BL-1000x1000.png",
+    href: "/products/soprano-titanium-compact",
+    price: 0,
+    specs: [
+      "Начинка Soprano Titanium · Компактный новый корпус",
+      "3 длины волны: Alexandrite 755 нм, Diode 810 нм, Nd:YAG 1064 нм",
+      "Охлаждение ICE TECH до -31°C · Ресурс 100 млн вспышек",
+    ],
+  },
+  {
+    id: "alexandrite-grey",
+    name: "Александрит — Серый",
+    category: "Лазер для эпиляции",
+    categoryColor: "#6a8360",
+    image: "/images/SHR-BL-1000x1000.png",
+    href: "/products/alexandrite-grey",
+    price: 0,
+    specs: [
+      "Александритовый лазер 755 нм · Эффективен для светлой кожи",
+      "Высокая скорость обработки · Подходит для тёмных волос",
+      "Постоянный результат · Профессиональное использование",
+    ],
   },
 ];
 
 export default function LaserProducts() {
-  const accentColor = "#d2a382"; // Changed to beige as requested
+  const accentColor = "#d2a382";
   return (
     <section className="products-section" style={{ padding: "4rem 1.5rem", background: "none" }}>
-      <div 
-        style={{ 
+      <div
+        style={{
           position: "relative",
           borderRadius: "160px",
           overflow: "hidden",
@@ -61,42 +131,42 @@ export default function LaserProducts() {
             alt=""
             style={{ width: "100%", height: "100%", objectFit: "cover", transform: "scale(1.05)" }}
           />
-          <div style={{ 
-            position: "absolute", 
-            top: 0, 
-            left: 0, 
-            width: "100%", 
-            height: "100%", 
-            background: "linear-gradient(135deg, rgba(12,12,12,0.85) 0%, rgba(12,12,12,0.4) 50%, rgba(12,12,12,0.9) 100%)" 
+          <div style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            background: "linear-gradient(135deg, rgba(12,12,12,0.85) 0%, rgba(12,12,12,0.4) 50%, rgba(12,12,12,0.9) 100%)"
           }} />
         </div>
 
         <div style={{ position: "relative", zIndex: 1, width: "100%" }}>
-          <div style={{ 
-            display: "flex", 
-            alignItems: "center", 
-            justifyContent: "space-between", 
-            gap: "2rem", 
+          <div style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            gap: "2rem",
             marginBottom: "4rem",
-            flexWrap: "nowrap" 
+            flexWrap: "nowrap"
           }}>
             <div style={{ display: "flex", alignItems: "baseline", gap: "1.5rem" }}>
               <span style={{ fontSize: "1rem", opacity: 0.6, fontWeight: 600, color: accentColor, fontFamily: "serif" }}>01</span>
-              <h2 style={{ 
-                margin: 0, 
-                fontSize: "clamp(3rem, 7vw, 6rem)", 
-                lineHeight: 0.85, 
+              <h2 style={{
+                margin: 0,
+                fontSize: "clamp(3rem, 7vw, 6rem)",
+                lineHeight: 0.85,
                 textTransform: "uppercase",
                 letterSpacing: "-0.02em"
               }}>
                 Лазерная<br />эпиляция
               </h2>
             </div>
-            <p style={{ 
-              margin: 0, 
-              fontSize: "clamp(1.1rem, 1.5vw, 1.3rem)", 
-              maxWidth: "35ch", 
-              opacity: 0.9, 
+            <p style={{
+              margin: 0,
+              fontSize: "clamp(1.1rem, 1.5vw, 1.3rem)",
+              maxWidth: "35ch",
+              opacity: 0.9,
               lineHeight: 1.4,
               fontWeight: 300,
               paddingBottom: "0.5rem"
@@ -104,13 +174,13 @@ export default function LaserProducts() {
               Профессиональные лазеры Soprano Titanium для эпиляции всех типов кожи и волос. Технологии Alexandrite, Diode, Nd:YAG в одном аппарате.
             </p>
           </div>
-          
+
           <div style={{ display: "flex", alignItems: "center", gap: "1.5rem", flexWrap: "wrap", marginBottom: "2rem" }}>
-            <Link href="/weight-loss" className="primary-button is-secondary w-inline-block" 
-              style={{ 
-                backgroundColor: "rgba(255,255,255,0.08)", 
-                backdropFilter: "blur(12px)", 
-                border: "1px solid rgba(255,255,255,0.3)", 
+            <Link href="/weight-loss" className="primary-button is-secondary w-inline-block"
+              style={{
+                backgroundColor: "rgba(255,255,255,0.08)",
+                backdropFilter: "blur(12px)",
+                border: "1px solid rgba(255,255,255,0.3)",
                 borderRadius: "999px",
                 padding: "16px 32px",
                 display: "flex",
@@ -120,13 +190,13 @@ export default function LaserProducts() {
               <ArrowIcon />
               <div data-button-text="">Смотреть все лазеры</div>
             </Link>
-            <Link href="/products/elza" className="primary-button w-inline-block" style={{ backgroundColor: accentColor, padding: "16px 32px", borderRadius: "999px" }}>
+            <Link href="/cart" className="primary-button w-inline-block" style={{ backgroundColor: accentColor, padding: "16px 32px", borderRadius: "999px" }}>
               <div data-button-text="">Оставить заявку</div>
             </Link>
           </div>
         </div>
 
-        {/* Content Bottom: Product cards */}
+        {/* Product cards */}
         <div style={{ position: "relative", zIndex: 1 }}>
           <ProductsSlider
             title=""

@@ -5,6 +5,7 @@ import "@/styles/custom.css";
 import "./globals.css";
 import AnimationProvider from "@/components/Providers/AnimationProvider";
 import ScrollReveal from "@/components/ScrollReveal";
+import { CartProvider } from "@/context/CartContext";
 
 const inter = Inter({
   subsets: ["latin", "cyrillic"],
@@ -45,10 +46,12 @@ export default function RootLayout({
   return (
     <html lang="ru" className={`${inter.variable} w-mod-js`} suppressHydrationWarning={true}>
       <body className="is-home">
-        <AnimationProvider>
-          {children}
-          <ScrollReveal />
-        </AnimationProvider>
+        <CartProvider>
+          <AnimationProvider>
+            {children}
+            <ScrollReveal />
+          </AnimationProvider>
+        </CartProvider>
       </body>
     </html>
   );
