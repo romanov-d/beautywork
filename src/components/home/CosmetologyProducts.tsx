@@ -10,7 +10,7 @@ const cosmetologyProducts: Product[] = [
     name: "Velashape Sculptor (Скульптор) — Белый с чёрным",
     category: "Аппаратная косметология",
     categoryColor: "#d2a382",
-    image: "/images/SHR-BL-1000x1000.png",
+    image: "/images/products/velashape-hero.png",
     href: "/products/velashape-sculptor-white-black",
     price: 0,
     specs: [
@@ -24,7 +24,7 @@ const cosmetologyProducts: Product[] = [
     name: "Morpheus MR 8 PRO — Чёрный с синим",
     category: "Аппаратная косметология",
     categoryColor: "#d2a382",
-    image: "/images/SHR-BL-1000x1000.png",
+    image: "/images/products/morpheus-hero.png",
     href: "/products/morpheus-mr8-pro-black-blue",
     price: 0,
     specs: [
@@ -38,7 +38,7 @@ const cosmetologyProducts: Product[] = [
     name: "FBody Roller / Вибросфера (Эндосфера)",
     category: "Аппаратная косметология",
     categoryColor: "#d2a382",
-    image: "/images/SHR-BL-1000x1000.png",
+    image: "/images/products/vibrosphere-hero.png",
     href: "/products/fbody-roller-vibrosphere",
     price: 0,
     specs: [
@@ -52,7 +52,7 @@ const cosmetologyProducts: Product[] = [
     name: "Кушетка «Эльза» — Белый",
     category: "Мебель для салонов",
     categoryColor: "#d2a382",
-    image: "/images/SHR-BL-1000x1000.png",
+    image: "/images/products/elza-hero.png",
     href: "/products/elza-couch-white",
     price: 0,
     specs: [
@@ -66,7 +66,7 @@ const cosmetologyProducts: Product[] = [
     name: "Velashape Sculptor + вакуумная кавитация",
     category: "Аппаратная косметология",
     categoryColor: "#d2a382",
-    image: "/images/SHR-BL-1000x1000.png",
+    image: "/images/products/velashape-hero.png",
     href: "/products/velashape-sculptor-vacuum-cavitation",
     price: 0,
     specs: [
@@ -80,7 +80,7 @@ const cosmetologyProducts: Product[] = [
     name: "Hydrafacial 1:1 Оригинал",
     category: "Аппаратная косметология",
     categoryColor: "#d2a382",
-    image: "/images/SHR-BL-1000x1000.png",
+    image: "/images/products/hydrafacial-original-hero.png",
     href: "/products/hydrafacial-original",
     price: 0,
     specs: [
@@ -94,7 +94,7 @@ const cosmetologyProducts: Product[] = [
     name: "Hydrafacial — Аналог (наш корпус и ПО)",
     category: "Аппаратная косметология",
     categoryColor: "#d2a382",
-    image: "/images/SHR-BL-1000x1000.png",
+    image: "/images/products/hydrafacial-analog-hero.png",
     href: "/products/hydrafacial-analog",
     price: 0,
     specs: [
@@ -108,7 +108,7 @@ const cosmetologyProducts: Product[] = [
     name: "Эндосфера + Жиромер — Чёрный",
     category: "Аппаратная косметология",
     categoryColor: "#d2a382",
-    image: "/images/SHR-BL-1000x1000.png",
+    image: "/images/products/endosphere-black-hero.png",
     href: "/products/endosphere-vibrosphere-black",
     price: 0,
     specs: [

@@ -10,7 +10,7 @@ const laserProducts: Product[] = [
     name: "Soprano Titanium 1600Вт — Чёрный с золотом",
     category: "Лазер для эпиляции · Новинка 2025",
     categoryColor: "#6a8360",
-    image: "/images/SHR-BL-1000x1000.png",
+    image: "/images/products/soprano-1600-black-hero.png",
     href: "/products/soprano-titanium-1600-black-gold",
     price: 0,
     specs: [
@@ -24,7 +24,7 @@ const laserProducts: Product[] = [
     name: "Soprano Titanium 1600Вт — Белый с серебром",
     category: "Лазер для эпиляции · Новинка 2025",
     categoryColor: "#6a8360",
-    image: "/images/SHR-BL-1000x1000.png",
+    image: "/images/products/soprano-1600-white-hero.png",
     href: "/products/soprano-titanium-1600-white-silver",
     price: 0,
     specs: [
@@ -38,7 +38,7 @@ const laserProducts: Product[] = [
     name: "Soprano Titanium 1200Вт — Чёрный с золотом",
     category: "Лазер для эпиляции",
     categoryColor: "#6a8360",
-    image: "/images/SHR-BL-1000x1000.png",
+    image: "/images/products/soprano-1200-black-hero.png",
     href: "/products/soprano-titanium-1200-black-gold",
     price: 0,
     specs: [
@@ -52,7 +52,7 @@ const laserProducts: Product[] = [
     name: "Soprano Titanium 1200Вт — Белый с серебром",
     category: "Лазер для эпиляции",
     categoryColor: "#6a8360",
-    image: "/images/SHR-BL-1000x1000.png",
+    image: "/images/products/soprano-1200-white-hero.png",
     href: "/products/soprano-titanium-1200-white-silver",
     price: 0,
     specs: [
@@ -66,7 +66,7 @@ const laserProducts: Product[] = [
     name: "Soprano Titanium 1600Вт — 2 манипулы + насадка для карбона",
     category: "Лазер для эпиляции · Новинка 2025",
     categoryColor: "#6a8360",
-    image: "/images/SHR-BL-1000x1000.png",
+    image: "/images/products/soprano-1600-black-hero.png",
     href: "/products/soprano-titanium-1600-carbon-2handles",
     price: 0,
     specs: [
@@ -80,7 +80,7 @@ const laserProducts: Product[] = [
     name: "Soprano Titanium — Компакт (новый корпус)",
     category: "Лазер для эпиляции",
     categoryColor: "#6a8360",
-    image: "/images/SHR-BL-1000x1000.png",
+    image: "/images/products/soprano-compact-hero.png",
     href: "/products/soprano-titanium-compact",
     price: 0,
     specs: [
@@ -94,7 +94,7 @@ const laserProducts: Product[] = [
     name: "Александрит — Серый",
     category: "Лазер для эпиляции",
     categoryColor: "#6a8360",
-    image: "/images/SHR-BL-1000x1000.png",
+    image: "/images/products/alexandrite-hero.png",
     href: "/products/alexandrite-grey",
     price: 0,
     specs: [

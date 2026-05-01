@@ -75,6 +75,26 @@ body {
   background-color: transparent !important;
 }
 
+/* ===== BUTTON HOVER EFFECTS ===== */
+.primary-button, 
+.login-button, 
+.cart-link-wrapper,
+.mobile-burger {
+  transition: filter 0.3s ease, background-color 0.3s ease, transform 0.2s ease !important;
+}
+
+.primary-button:hover, 
+.login-button:hover, 
+.cart-link-wrapper:hover {
+  filter: brightness(0.88) !important;
+}
+
+.primary-button:active, 
+.login-button:active, 
+.cart-link-wrapper:active {
+  transform: scale(0.98) !important;
+}
+
 /* Force all text to be light */
 p,
 span,

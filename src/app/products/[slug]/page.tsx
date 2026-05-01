@@ -203,7 +203,7 @@ function isVideo(src: string) {
 }
 
 function ProductGallery({ image, gallery }: { image: string; gallery?: string[] }) {
-  const items = gallery && gallery.length > 0 ? gallery : [image];
+  const items = gallery && gallery.length > 0 ? [image, ...gallery] : [image];
   const [active, setActive] = useState(0);
 
   function prev() { setActive((i) => (i - 1 + items.length) % items.length); }

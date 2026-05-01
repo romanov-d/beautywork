@@ -18,7 +18,7 @@ const ALL_PRODUCTS: ProductData[] = [
     category: "Лазер для эпиляции · Новинка 2025",
     description:
       "Soprano Titanium 1600Вт — универсальное решение для лазерной эпиляции всех типов кожи и волос. Три длины волны в одной манипуле, усовершенствованная система охлаждения ICE TECH до −31°C и ресурс 100 млн вспышек. Новый корпус с тремя сменными насадками и защитным кейсом для транспортировки.",
-    image: "/images/SHR-BL-1000x1000.png",
+    image: "/images/products/soprano-1600-black-hero.png",
     gallery: [
       "/images/products/soprano-1600-black-1.jpg",
       "/images/products/soprano-1600-black-2.jpg",
@@ -63,7 +63,7 @@ const ALL_PRODUCTS: ProductData[] = [
     category: "Лазер для эпиляции · Новинка 2025",
     description:
       "Soprano Titanium 1600Вт в элегантном белом исполнении с серебром. Три длины волны, охлаждение ICE TECH до −31°C, 100 млн вспышек ресурса. Новый корпус, три сменные насадки и защитный кейс в комплекте.",
-    image: "/images/SHR-BL-1000x1000.png",
+    image: "/images/products/soprano-1600-white-hero.png",
     gallery: [
       "/images/products/soprano-1600-white-1.jpg",
       "/images/products/soprano-1600-white-2.jpg",
@@ -106,7 +106,7 @@ const ALL_PRODUCTS: ProductData[] = [
     category: "Лазер для эпиляции · Новинка 2025",
     description:
       "Комплектация Soprano Titanium 1600Вт с двумя манипулами и специальной насадкой для карбонового пилинга. Позволяет одновременно обслуживать двух клиентов или чередовать насадки без перерыва. Насадка для карбона открывает возможность процедуры карбонового пилинга на том же аппарате.",
-    image: "/images/SHR-BL-1000x1000.png",
+    image: "/images/products/soprano-1600-black-hero.png",
     gallery: [
       "/images/products/soprano-1600-black-1.jpg",
       "/images/products/soprano-1600-black-2.jpg",
@@ -140,7 +140,7 @@ const ALL_PRODUCTS: ProductData[] = [
     category: "Лазер для эпиляции",
     description:
       "Soprano Titanium 1200Вт в классическом корпусе — аналог израильского аппарата. Три длины волны, охлаждение ICE TECH, ресурс 100 млн вспышек. Проверенная надёжность в корпусе с современной начинкой Soprano.",
-    image: "/images/SHR-BL-1000x1000.png",
+    image: "/images/products/soprano-1200-black-hero.png",
     gallery: [
       "/images/products/soprano-1200-black-1.jpg",
       "/images/products/soprano-1200-black-2.jpg",
@@ -186,7 +186,7 @@ const ALL_PRODUCTS: ProductData[] = [
     category: "Лазер для эпиляции",
     description:
       "Soprano Titanium 1200Вт в классическом корпусе белого цвета с серебром — аналог израильского аппарата. Три длины волны, охлаждение ICE TECH до −31°C, ресурс 100 млн вспышек.",
-    image: "/images/SHR-BL-1000x1000.png",
+    image: "/images/products/soprano-1200-white-hero.png",
     gallery: [
       "/images/products/soprano-1200-white-1.jpg",
       "/images/products/soprano-1200-white-2.jpg",
@@ -233,7 +233,7 @@ const ALL_PRODUCTS: ProductData[] = [
     category: "Лазер для эпиляции",
     description:
       "Компактная версия Soprano Titanium в новом корпусе — та же начинка, меньший размер. Идеально для небольших кабинетов, где важна эргономика пространства без потери профессиональных возможностей.",
-    image: "/images/SHR-BL-1000x1000.png",
+    image: "/images/products/soprano-compact-hero.png",
     cardSpecs: [
       "Начинка Soprano Titanium · Компактный новый корпус",
       "3 длины волны: Alexandrite 755 нм, Diode 810 нм, Nd:YAG 1064 нм",
@@ -259,7 +259,7 @@ const ALL_PRODUCTS: ProductData[] = [
     category: "Лазер для эпиляции",
     description:
       "Александритовый лазер 755 нм — оптимальный выбор для клиентов со светлой и смуглой кожей и тёмными волосами. Высокая скорость обработки, стойкий результат после курса процедур.",
-    image: "/images/SHR-BL-1000x1000.png",
+    image: "/images/products/alexandrite-hero.png",
     cardSpecs: [
       "Александритовый лазер 755 нм · Эффективен для светлой кожи",
       "Высокая скорость обработки · Подходит для тёмных волос",
@@ -284,7 +284,7 @@ const ALL_PRODUCTS: ProductData[] = [
     category: "Аппаратная косметология",
     description:
       "Velashape Sculptor — комплексный аппарат для коррекции фигуры с 5 методиками в одном: инфракрасное излучение, радиочастотные волны (РФ), вакуум, механические ролики и кавитация. 5 специализированных манипул для работы с телом, лицом и деликатными зонами.",
-    image: "/images/SHR-BL-1000x1000.png",
+    image: "/images/products/velashape-hero.png",
     gallery: [
       "/images/products/velashape-1.jpg",
       "/images/products/velashape-2.jpg",
@@ -324,7 +324,7 @@ const ALL_PRODUCTS: ProductData[] = [
     category: "Аппаратная косметология",
     description:
       "Расширенная комплектация Velashape Sculptor с дополнительной вакуумной кавитацией. Увеличенная глубина воздействия на жировые клетки, усиленный лимфодренажный эффект.",
-    image: "/images/SHR-BL-1000x1000.png",
+    image: "/images/products/velashape-hero.png",
     gallery: [
       "/images/products/velashape-1.jpg",
       "/images/products/velashape-2.jpg",
@@ -354,7 +354,7 @@ const ALL_PRODUCTS: ProductData[] = [
     category: "Аппаратная косметология",
     description:
       "Morpheus MR 8 PRO — аппарат фракционного микроигольчатого RF лифтинга с 3 функциями: микроигольчатый РФ (M8), неинвазивный радиочастотный EMRF (аналог Thermage) и криотерапия. Большой экран, металлический корпус. Глубина воздействия до 8 мм — самая высокая на рынке.",
-    image: "/images/SHR-BL-1000x1000.png",
+    image: "/images/products/morpheus-hero.png",
     gallery: [
       "/images/products/morpheus-1.jpg",
       "/images/products/morpheus-2.jpg",
@@ -393,7 +393,7 @@ const ALL_PRODUCTS: ProductData[] = [
     category: "Аппаратная косметология",
     description:
       "Оригинальный аппарат Hydrafacial — работает как на оригинальных расходниках из США, так и на аналогах. Глубокое очищение, пилинг, экстракция, увлажнение и защита кожи за одну процедуру. Видимый результат после первого сеанса.",
-    image: "/images/SHR-BL-1000x1000.png",
+    image: "/images/products/hydrafacial-original-hero.png",
     cardSpecs: [
       "Оригинальный аппарат · Совместим с расходниками США и аналогами",
       "Глубокое очищение, пилинг, увлажнение, защита",
@@ -417,7 +417,7 @@ const ALL_PRODUCTS: ProductData[] = [
     category: "Аппаратная косметология",
     description:
       "Аппарат для гидродермабразии в собственном корпусе с фирменным программным обеспечением. Те же методики, что у оригинала: очищение, пилинг, экстракция, увлажнение и защита. Доступная альтернатива с профессиональным результатом.",
-    image: "/images/SHR-BL-1000x1000.png",
+    image: "/images/products/hydrafacial-analog-hero.png",
     cardSpecs: [
       "Собственный корпус и программное обеспечение",
       "Те же методики: очищение, пилинг, увлажнение, защита",
@@ -441,7 +441,7 @@ const ALL_PRODUCTS: ProductData[] = [
     category: "Аппаратная косметология",
     description:
       "Аппарат для эндосфера-терапии с компрессионной микровибрацией 151–200 Гц. Манипулы с 50 силиконовыми шариками для тела и 60 шариками для лица и шеи. Эффективность: 1 процедура = 10 ручным массажам. Активизирует кровообращение и лимфодренаж.",
-    image: "/images/SHR-BL-1000x1000.png",
+    image: "/images/products/vibrosphere-hero.png",
     gallery: [
       "/images/products/vibrosphere-1.jpg",
       "/images/products/vibrosphere-2.jpg",
@@ -482,7 +482,7 @@ const ALL_PRODUCTS: ProductData[] = [
     category: "Аппаратная косметология",
     description:
       "Аппарат для эндосфера-терапии с компрессионной микровибрацией в чёрном исполнении, дополненный встроенным жиромером для точного контроля результатов процедур и динамики изменений.",
-    image: "/images/SHR-BL-1000x1000.png",
+    image: "/images/products/endosphere-black-hero.png",
     gallery: [
       "/images/products/vibrosphere-1.jpg",
       "/images/products/vibrosphere-2.jpg",
@@ -511,7 +511,7 @@ const ALL_PRODUCTS: ProductData[] = [
     category: "Мебель для салонов",
     description:
       "Кушетка косметологическая «Эльза» — популярная модель с матрасом анатомической формы, отверстием для лица и съёмными подлокотниками. Оснащена пластиковыми лотками под мягким элементом. Раскладывается в горизонтальное положение. Подходит для косметологии и массажа.",
-    image: "/images/SHR-BL-1000x1000.png",
+    image: "/images/products/elza-hero.png",
     gallery: [
       "/images/products/elza-1.jpg",
       "/images/products/elza-2.jpg",
