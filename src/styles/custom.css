@@ -116,14 +116,39 @@
 }
 
 
+/* Products section: full-width on mobile */
+@media (max-width: 767px) {
+  .products-section {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .products-section > div:first-child {
+    border-radius: 0 !important;
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+    min-height: auto !important;
+    gap: 2.5rem !important;
+  }
+}
+
 /* Аппаратная косметология background: darken (rotation baked into the image file) */
 .image-full.is-cosmeto-bg {
   filter: brightness(0.7) !important;
 }
 
+/* Product card title: beige color */
+.product-title-div .heading-6 {
+  color: #d2a382 !important;
+}
+
 /* Keep product image below the card title */
 .gsap-slider--one .product-card .card-bottom {
   padding-top: 2.5rem !important;
+}
+@media (max-width: 767px) {
+  .gsap-slider--one .product-card .card-bottom {
+    padding-top: 0.75rem !important;
+  }
 }
 
 /* Smaller headline in the two products-subsection blocks under sliders */
@@ -298,6 +323,12 @@
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
+}
+@media (max-width: 767px) {
+  .card-asset-contain {
+    height: auto !important;
+    min-height: 140px !important;
+  }
 }
 
 .video-card-visual__img,
@@ -1448,7 +1479,7 @@ body.is-cart [hidden] { display: none !important; }
   top: 10rem !important;
   align-self: start !important;
 }
-@media (max-width: 991px) { .cart-form-intro { position: static; } }
+@media (max-width: 991px) { .cart-form-intro { position: static !important; top: auto !important; } }
 
 .cart-form-intro .subheading { margin-bottom: 1rem; opacity: 0.65; }
 .display.is-cart-form-title {
@@ -1743,27 +1774,41 @@ body.is-cart [hidden] { display: none !important; }
 
 /* ===== MOBILE OPTIMIZATIONS ===== */
 @media (max-width: 767px) {
-  /* 1. Cart Alignment: Everything to the left */
+  /* 1. Cart Alignment */
   .cart-hero-section,
   .cart-hero-section *,
   .cart-section,
   .cart-section *,
-  .cart-form-section,
-  .cart-form-section *,
   .display.is-cart-title,
   .heading-5.is-cm,
-  .display.is-cart-form-title,
-  .heading-5.is-form-lead,
   .subheading.is-nm,
-  .cart-form-intro,
   .cart-breadcrumbs {
     text-align: left !important;
     align-items: flex-start !important;
     justify-content: flex-start !important;
   }
 
+  /* Form Title to the Left as requested */
+  .display.is-cart-form-title,
+  .heading-5.is-form-lead {
+    text-align: left !important;
+    align-items: flex-start !important;
+    width: 100% !important;
+  }
+
+  /* Empty Cart Summary centered on PC & Mobile */
+  .hero-heading.is-cart-summary {
+    text-align: center !important;
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+  .hero-heading.is-cart-summary span {
+    text-align: center !important;
+  }
+
   .cart-hero-grid,
-  .cart-form-intro,
   .cart-form-grid {
     display: flex !important;
     flex-direction: column !important;
@@ -1771,23 +1816,46 @@ body.is-cart [hidden] { display: none !important; }
     text-align: left !important;
   }
 
-  /* 2. Glassy Form: Solid background to prevent see-through text */
+  /* Glassy Form: solid background */
   .cart-form-section.is-dark {
-    background-color: #1e1e1e !important;
+    background-color: #1a1a1a !important;
     opacity: 1 !important;
     position: relative !important;
     z-index: 100 !important;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
   }
 
-  /* 3. Product Grid: Fix stretched cards */
+  /* Circles centering */
+  .cart-assurance-item .subheading,
+  .cart-promo-list li span {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    line-height: 1 !important;
+    padding: 0 !important;
+  }
+
+  /* 3. Product Grid & Full-width Category Block */
+  .products-section {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  
+  .products-section > div:first-child {
+    border-radius: 0 !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    width: 100% !important;
+    min-height: auto !important;
+  }
+
   [data-gsap-slider-init] .gsap-slider__list {
     display: grid !important;
     grid-template-columns: 1fr 1fr !important;
-    gap: 8px !important;
+    gap: 10px !important;
     width: 100% !important;
     transform: none !important;
-    padding: 0 1rem !important;
+    padding: 0 !important;
     margin: 0 !important;
   }
 
@@ -1805,38 +1873,30 @@ body.is-cart [hidden] { display: none !important; }
     border: 1px solid rgba(255, 255, 255, 0.05);
   }
 
-  .card-content {
-    height: auto !important;
-    display: flex !important;
-    flex-direction: column !important;
-  }
-
   .video-card-visual {
-    height: 110px !important;
-    margin-bottom: 10px !important;
+    height: 120px !important; /* Compressed height */
+    min-height: 120px !important;
   }
 
   .product-title-div .heading-6 {
-    font-size: 11px !important;
+    font-size: 13px !important;
     line-height: 1.2 !important;
-    margin-bottom: 5px !important;
   }
 
   .card-buttons-flex {
     flex-direction: column !important;
-    gap: 5px !important;
-    margin-top: auto !important;
+    gap: 6px !important;
   }
 
   .primary-button.is-p-l, 
   .primary-button.is-p-r {
     width: 100% !important;
     font-size: 10px !important;
-    padding: 5px 8px !important;
     height: 32px !important;
   }
+}
 
-  .gsap-slider__controls {
-    display: none !important;
-  }
+/* Global Empty Summary Center */
+.hero-heading.is-cart-summary {
+  text-align: center !important;
 }

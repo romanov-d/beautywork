@@ -192,10 +192,32 @@ const PAGE_STYLES = `
     padding: 10rem 5%;
     text-align: center;
   }
+  /* Mobile-only header: hidden on desktop */
+  .product-mobile-header { display: none; }
+
   @media (max-width: 900px) {
-    .product-hero-grid { grid-template-columns: 1fr; gap: 3rem; }
-    .product-hero-section { padding-top: 5rem; }
+    .product-hero-section {
+      padding-top: 6.5rem !important;
+      padding-bottom: 3rem !important;
+      row-gap: 0 !important;
+      gap: 0 !important;
+    }
+    .product-hero-grid {
+      grid-template-columns: 1fr !important;
+      gap: 0 !important;
+      row-gap: 0 !important;
+      column-gap: 0 !important;
+      padding-top: 0 !important;
+    }
     .gallery-wrap { position: static; }
+
+    /* Show mobile header (title above gallery), hide desktop copies */
+    .product-mobile-header {
+      display: block;
+      padding: 0 5%;
+      margin-bottom: 0.5rem;
+    }
+    .product-desktop-title { display: none; }
   }
 `;
 
@@ -295,14 +317,17 @@ export default function ProductSlugPage() {
           </div>
         ) : (
           <section className="product-hero-section">
+            {/* Mobile-only title above gallery */}
+            <div className="product-mobile-header">
+              <h1 className="product-title-text">{product.name}</h1>
+            </div>
             <div className="product-hero-grid">
               {/* LEFT: gallery */}
               <ProductGallery image={product.image} gallery={product.gallery} />
 
               {/* RIGHT: info */}
               <div className="product-info">
-                <span className="product-category-label">{product.category}</span>
-                <h1 className="product-title-text">{product.name}</h1>
+                <h1 className="product-title-text product-desktop-title">{product.name}</h1>
                 <p className="product-description">{product.description}</p>
 
                 <div className="button-group">

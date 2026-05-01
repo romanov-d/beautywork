@@ -82,52 +82,56 @@ export default function ProductsSlider({
                 role="listitem"
                 className="gsap-slider__item-copy w-dyn-item">
                 <div className="product-slide">
-                  <div data-video-on-hover="not-active" className="product-card">
-                    <div className="before__125" />
-                    <div className="card-content">
-                      <div className="card-top">
-                        <div className="product-title-div">
-                          <div className="heading-6" style={{ color: "#d2a382 !important" }}>{product.name}</div>
-                          <div className="rx-text">Rx</div>
-                        </div>
-                      </div>
-                      <div className="card-bottom">
-                        <div className="card-asset-contain">
-                          <div className="video-card-visual">
-                            {/* eslint-disable-next-line @next/next/no-img-element */}
-                            <img loading="lazy" src={product.image} alt="" sizes="100vw"
-                              className="video-card-visual__img" />
-                            <video muted loop playsInline className="video-card-visual__video" />
+                  <Link href={product.href} style={{ display: "block", textDecoration: "none", color: "inherit" }}>
+                    <div data-video-on-hover="not-active" className="product-card">
+                      <div className="before__125" />
+                      <div className="card-content">
+                        <div className="card-top">
+                          <div className="product-title-div">
+                            <div className="heading-6" style={{ color: "#d2a382" }}>{product.name}</div>
+                            <div className="rx-text">Rx</div>
                           </div>
                         </div>
-                        <div className="card-buttons-wrap">
-                          <div className="card-buttons-flex">
-                            <button
-                              type="button"
-                              onClick={() => handleAddToCart(product)}
-                              className="primary-button is-p-l w-inline-block"
-                              style={{
-                                backgroundColor: addedId === product.id ? "#4a7a40" : product.categoryColor,
-                                cursor: "pointer",
-                                border: "none",
-                                whiteSpace: "nowrap",
-                                minWidth: "fit-content",
-                              }}
-                            >
-                              <div data-button-text="" style={{ whiteSpace: "nowrap" }}>
-                                {addedId === product.id ? "Добавлено ✓" : "В корзину"}
+                        <div className="card-bottom">
+                          <div className="card-asset-contain">
+                            <div className="video-card-visual">
+                              {/* eslint-disable-next-line @next/next/no-img-element */}
+                              <img loading="lazy" src={product.image} alt="" sizes="100vw"
+                                className="video-card-visual__img" />
+                              <video muted loop playsInline className="video-card-visual__video" />
+                            </div>
+                          </div>
+                          <div className="card-buttons-wrap">
+                            <div className="card-buttons-flex">
+                              <button
+                                type="button"
+                                onClick={(e) => { e.preventDefault(); e.stopPropagation(); handleAddToCart(product); }}
+                                className="primary-button is-p-l w-inline-block"
+                                style={{
+                                  backgroundColor: addedId === product.id ? "#4a7a40" : product.categoryColor,
+                                  cursor: "pointer",
+                                  border: "none",
+                                  whiteSpace: "nowrap",
+                                  minWidth: "fit-content",
+                                }}
+                              >
+                                <div data-button-text="" style={{ whiteSpace: "nowrap" }}>
+                                  {addedId === product.id ? "Добавлено ✓" : "В корзину"}
+                                </div>
+                              </button>
+                              <div
+                                className="primary-button is-p-r w-inline-block"
+                                style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}
+                              >
+                                <ArrowIcon />
+                                <div data-button-text="">Подробнее</div>
                               </div>
-                            </button>
-                            <Link data-button="" href={product.href}
-                              className="primary-button is-p-r w-inline-block">
-                              <ArrowIcon />
-                              <div data-button-text="">Подробнее</div>
-                            </Link>
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </Link>
                 </div>
               </div>
             ))}
