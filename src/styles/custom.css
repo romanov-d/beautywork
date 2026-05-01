@@ -284,6 +284,21 @@
   display: none !important;
 }
 
+.card-asset-contain {
+  height: 260px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.video-card-visual__img,
+.card-asset-contain img {
+  object-fit: contain !important;
+  object-position: center center !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
 /* Document */
 html {
   -webkit-font-smoothing: antialiased;

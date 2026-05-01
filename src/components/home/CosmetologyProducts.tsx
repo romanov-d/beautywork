@@ -122,7 +122,7 @@ const cosmetologyProducts: Product[] = [
     name: "Криолиполиз",
     category: "Аппаратная косметология",
     categoryColor: "#d2a382",
-    image: "/images/SHR-BL-1000x1000.png",
+    image: "/images/products/cryolipolysis-hero.png",
     href: "/products/cryolipolysis",
     price: 0,
     specs: [

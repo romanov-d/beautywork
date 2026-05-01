@@ -122,7 +122,8 @@ const PAGE_STYLES = `
   .gallery-main img, .gallery-main video {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    padding: 1rem;
   }
   .gallery-nav-btn {
     position: absolute;
