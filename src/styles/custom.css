@@ -1842,10 +1842,11 @@ body.is-cart [hidden] { display: none !important; }
   }
   
   .products-section > div:first-child {
-    border-radius: 0 !important;
-    padding-left: 1rem !important;
-    padding-right: 1rem !important;
-    width: 100% !important;
+    border-radius: 80px !important;
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+    width: calc(100% - 1rem) !important;
+    margin: 0 auto !important;
     min-height: auto !important;
   }
 
