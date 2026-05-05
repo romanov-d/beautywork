@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import ArrowIcon from "./ArrowIcon";
-import Marquee from "./Marquee";
 
 export default function Footer({ onOpenModal }: { onOpenModal: () => void }) {
   return (
@@ -57,7 +56,7 @@ export default function Footer({ onOpenModal }: { onOpenModal: () => void }) {
             <div className="quicklinks-flex">
               <Link href="/terms-and-conditions" className="body-large is-link">Условия сотрудничества</Link>
               <Link href="/privacy-policy" className="body-large is-link">Политика конфиденциальности</Link>
-              <Link href="/cart" className="body-large is-link">Оставить заявку</Link>
+              <a href="#" className="body-large is-link" onClick={(e) => { e.preventDefault(); onOpenModal(); }}>Оставить заявку</a>
             </div>
           </div>
 

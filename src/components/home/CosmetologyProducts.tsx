@@ -155,7 +155,7 @@ export default function CosmetologyProducts() {
         <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", zIndex: 0 }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/images/11814a2f09ff58d6a561fbef5ec39ee0-rotated.jpg"
+            src="/images/category2.jpg"
             alt=""
             style={{ width: "100%", height: "100%", objectFit: "cover", transform: "scale(1.05)" }}
           />
