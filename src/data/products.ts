@@ -8,12 +8,14 @@ export interface ProductData {
   cardSpecs: string[];
   specs: { label: string; value: string }[];
   features: string[];
+  price: number;
 }
 
 const ALL_PRODUCTS: ProductData[] = [
   // ─── ЛАЗЕРЫ ────────────────────────────────────────────────────────────
   {
     id: "soprano-titanium-1600-black-gold",
+    price: 141000,
     name: "Soprano Titanium 1600Вт — Чёрный с золотом",
     category: "Лазер для эпиляции · Новинка 2025",
     description:
@@ -59,6 +61,7 @@ const ALL_PRODUCTS: ProductData[] = [
   },
   {
     id: "soprano-titanium-1600-white-silver",
+    price: 141000,
     name: "Soprano Titanium 1600Вт — Белый с серебром",
     category: "Лазер для эпиляции · Новинка 2025",
     description:
@@ -102,6 +105,7 @@ const ALL_PRODUCTS: ProductData[] = [
   },
   {
     id: "soprano-titanium-1600-carbon-2handles",
+    price: 0,
     name: "Soprano Titanium 1600Вт — 2 манипулы + насадка для карбона",
     category: "Лазер для эпиляции · Новинка 2025",
     description:
@@ -136,6 +140,7 @@ const ALL_PRODUCTS: ProductData[] = [
   },
   {
     id: "soprano-titanium-1200-black-gold",
+    price: 195000,
     name: "Soprano Titanium 1200Вт — Чёрный с золотом",
     category: "Лазер для эпиляции",
     description:
@@ -182,6 +187,7 @@ const ALL_PRODUCTS: ProductData[] = [
   },
   {
     id: "soprano-titanium-1200-white-silver",
+    price: 195000,
     name: "Soprano Titanium 1200Вт — Белый с серебром",
     category: "Лазер для эпиляции",
     description:
@@ -229,6 +235,7 @@ const ALL_PRODUCTS: ProductData[] = [
   },
   {
     id: "soprano-titanium-compact",
+    price: 0,
     name: "Soprano Titanium — Компакт (новый корпус)",
     category: "Лазер для эпиляции",
     description:
@@ -255,6 +262,7 @@ const ALL_PRODUCTS: ProductData[] = [
   },
   {
     id: "alexandrite-grey",
+    price: 295000,
     name: "Александрит — Серый",
     category: "Лазер для эпиляции",
     description:
@@ -280,6 +288,7 @@ const ALL_PRODUCTS: ProductData[] = [
   // ─── КОСМЕТОЛОГИЯ / КОРРЕКЦИЯ ФИГУРЫ ──────────────────────────────────
   {
     id: "velashape-sculptor-white-black",
+    price: 170500,
     name: "Velashape Sculptor (Скульптор) — Белый с чёрным",
     category: "Аппаратная косметология",
     description:
@@ -320,6 +329,7 @@ const ALL_PRODUCTS: ProductData[] = [
   },
   {
     id: "velashape-sculptor-vacuum-cavitation",
+    price: 0,
     name: "Velashape Sculptor + вакуумная кавитация",
     category: "Аппаратная косметология",
     description:
@@ -350,6 +360,7 @@ const ALL_PRODUCTS: ProductData[] = [
   },
   {
     id: "morpheus-mr8-pro-black-blue",
+    price: 75000,
     name: "Morpheus MR 8 PRO — Чёрный с синим",
     category: "Аппаратная косметология",
     description:
@@ -389,6 +400,7 @@ const ALL_PRODUCTS: ProductData[] = [
   },
   {
     id: "hydrafacial-original",
+    price: 171000,
     name: "Hydrafacial 1:1 Оригинал",
     category: "Аппаратная косметология",
     description:
@@ -413,6 +425,7 @@ const ALL_PRODUCTS: ProductData[] = [
   },
   {
     id: "hydrafacial-analog",
+    price: 119000,
     name: "Hydrafacial — Аналог (наш корпус и ПО)",
     category: "Аппаратная косметология",
     description:
@@ -437,6 +450,7 @@ const ALL_PRODUCTS: ProductData[] = [
   },
   {
     id: "fbody-roller-vibrosphere",
+    price: 82000,
     name: "Эндосфера / Вибросфера — Серебро",
     category: "Аппаратная косметология",
     description:
@@ -478,6 +492,7 @@ const ALL_PRODUCTS: ProductData[] = [
   },
   {
     id: "endosphere-vibrosphere-black",
+    price: 98000,
     name: "Эндосфера + Жиромер — Чёрный",
     category: "Аппаратная косметология",
     description:
@@ -507,6 +522,7 @@ const ALL_PRODUCTS: ProductData[] = [
   },
   {
     id: "elza-couch-white",
+    price: 0,
     name: "Кушетка «Эльза» — Белый",
     category: "Мебель для салонов",
     description:
@@ -544,6 +560,7 @@ const ALL_PRODUCTS: ProductData[] = [
   },
   {
     id: "cryolipolysis",
+    price: 0,
     name: "Криолиполиз",
     category: "Аппаратная косметология",
     description:

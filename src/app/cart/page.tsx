@@ -16,7 +16,7 @@ export default function CartPage() {
   const [isMounted, setIsMounted] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
 
-  const { items, updateQty, removeItem, clearCart } = useCart();
+  const { items, updateQty, removeItem, clearCart, total } = useCart();
 
   useEffect(() => {
     setIsMounted(true);
@@ -117,6 +117,11 @@ export default function CartPage() {
                             <div className="cart-item-meta">
                               <div className="subheading">{item.category}</div>
                               <h3 className="heading-5 is-cart-item">{item.name}</h3>
+                              {item.price > 0 && (
+                                <div style={{ fontFamily: "'Kudryashev Display Sans', Arial, sans-serif", fontSize: "1.6rem", color: "#d2a382", margin: "0.4rem 0 0.6rem", letterSpacing: "-0.02em", lineHeight: 1, WebkitTextStroke: "0.04em currentColor" } as React.CSSProperties}>
+                                  {item.price.toLocaleString("ru-RU")} ₽{item.qty > 1 && ` × ${item.qty} = ${(item.price * item.qty).toLocaleString("ru-RU")} ₽`}
+                                </div>
+                              )}
                               <ul className="cart-item-specs">
                                 {item.specs.map((spec, i) => <li key={i}>{spec}</li>)}
                               </ul>
@@ -159,8 +164,8 @@ export default function CartPage() {
                   <ul className="cart-promo-list">
                     <li><span>01</span>Гарантия 12 месяцев от производителя</li>
                     <li><span>02</span>Профессиональное обучение мастеров</li>
-                    <li><span>03</span>Собственный склад и сервис в Москве</li>
-                    <li><span>04</span>Отгрузка в регионы за 5–10 дней</li>
+                    <li><span>03</span>Доставка по Москве и МО — ~20 000 ₽</li>
+                    <li><span>04</span>Регионы — индивидуальный расчёт по тарифам ТК</li>
                   </ul>
                 </div>
               </div>
@@ -176,17 +181,27 @@ export default function CartPage() {
                     </h2>
                   </div>
                   <div className="cart-summary-rows">
+                    {total > 0 && (
+                      <div className="cart-summary-row" style={{ borderBottom: "1px solid rgba(240,237,232,0.12)", paddingBottom: "0.75rem", marginBottom: "0.25rem" }}>
+                        <span style={{ fontWeight: 600 }}>Итого (ориентировочно)</span>
+                        <span style={{ fontFamily: "'Kudryashev Display Sans', Arial, sans-serif", color: "#d2a382", fontSize: "1.6rem", letterSpacing: "-0.02em", WebkitTextStroke: "0.04em currentColor" } as React.CSSProperties}>{total.toLocaleString("ru-RU")} ₽</span>
+                      </div>
+                    )}
                     <div className="cart-summary-row">
                       <span>Доставка по Москве</span>
-                      <span>Бесплатно</span>
+                      <span>~20 000 ₽</span>
+                    </div>
+                    <div className="cart-summary-row">
+                      <span>Доставка по МО</span>
+                      <span>~20 000 ₽</span>
+                    </div>
+                    <div className="cart-summary-row">
+                      <span>Доставка в регионы</span>
+                      <span>По тарифам ТК</span>
                     </div>
                     <div className="cart-summary-row">
                       <span>Пуско-наладка</span>
                       <span>Включена</span>
-                    </div>
-                    <div className="cart-summary-row is-dotted">
-                      <span>Обучение мастеров</span>
-                      <span>Включено</span>
                     </div>
                   </div>
                   <div className="cart-summary-note">
@@ -319,7 +334,9 @@ export default function CartPage() {
                     <label className="cart-check">
                       <input type="checkbox" name="agree_terms" className="cart-check-input" required />
                       <span className="cart-check-box" aria-hidden="true"></span>
-                      <span className="cart-check-label">Согласен с условиями сотрудничества и политикой обработки данных *</span>
+                      <span className="cart-check-label">
+                        Согласен с <Link href="/privacy-policy" className="is-link" style={{ textDecoration: "underline" }}>условиями сотрудничества</Link> и <Link href="/privacy-policy" className="is-link" style={{ textDecoration: "underline" }}>политикой обработки данных</Link> *
+                      </span>
                     </label>
                   </div>
 

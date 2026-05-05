@@ -91,6 +91,11 @@ export default function ProductsSlider({
                             <div className="heading-6" style={{ color: "#d2a382" }}>{product.name}</div>
                             <div className="rx-text">Rx</div>
                           </div>
+                          <div style={{ marginTop: "0.5rem", fontFamily: "'Kudryashev Display Sans', Arial, sans-serif", fontSize: "1.3rem", color: "#f0ede8", letterSpacing: "-0.01em", lineHeight: 1, WebkitTextStroke: "0.04em currentColor" } as React.CSSProperties}>
+                            {product.price > 0
+                              ? `от ${product.price.toLocaleString("ru-RU")} ₽`
+                              : "Цена по запросу"}
+                          </div>
                         </div>
                         <div className="card-bottom">
                           <div className="card-asset-contain">

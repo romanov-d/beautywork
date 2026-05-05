@@ -290,7 +290,7 @@ export default function ProductSlugPage() {
       id: product.id,
       name: product.name,
       category: product.category,
-      price: 0,
+      price: product.price,
       image: product.image,
       specs: product.cardSpecs,
     });
@@ -329,6 +329,18 @@ export default function ProductSlugPage() {
               <div className="product-info">
                 <h1 className="product-title-text product-desktop-title">{product.name}</h1>
                 <p className="product-description">{product.description}</p>
+
+                <div style={{ marginBottom: "1.5rem" }}>
+                  {product.price > 0 ? (
+                    <div style={{ fontFamily: "'Kudryashev Display Sans', Arial, sans-serif", fontSize: "2.5rem", color: "#f0ede8", letterSpacing: "-0.02em", lineHeight: 1, WebkitTextStroke: "0.04em currentColor" } as React.CSSProperties}>
+                      от {product.price.toLocaleString("ru-RU")} ₽
+                    </div>
+                  ) : (
+                    <div style={{ fontFamily: "'Kudryashev Display Sans', Arial, sans-serif", fontSize: "1.5rem", color: "rgba(240,237,232,0.4)", letterSpacing: "-0.01em", WebkitTextStroke: "0.03em currentColor" } as React.CSSProperties}>
+                      Цена по запросу
+                    </div>
+                  )}
+                </div>
 
                 <div className="button-group">
                   <a

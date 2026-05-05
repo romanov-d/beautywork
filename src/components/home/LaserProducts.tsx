@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import ProductsSlider, { Product } from "./ProductsSlider";
-import ArrowIcon from "../ArrowIcon";
+
 
 const laserProducts: Product[] = [
   {
@@ -12,11 +12,11 @@ const laserProducts: Product[] = [
     categoryColor: "#6a8360",
     image: "/images/products/soprano-1600-black-hero.png",
     href: "/products/soprano-titanium-1600-black-gold",
-    price: 0,
+    price: 141000,
     specs: [
       "3 длины волны: Alexandrite 755 нм, Diode 810 нм, Nd:YAG 1064 нм",
       "Охлаждение ICE TECH до -31°C · Ресурс 100 млн вспышек",
-      "Новый корпус · 3 сменные насадки · Защитный кейс",
+      "Доступен в 2 цветах · Наличие в Москве или под заказ из Китая",
     ],
   },
   {
@@ -26,11 +26,11 @@ const laserProducts: Product[] = [
     categoryColor: "#6a8360",
     image: "/images/products/soprano-1600-white-hero.png",
     href: "/products/soprano-titanium-1600-white-silver",
-    price: 0,
+    price: 141000,
     specs: [
       "3 длины волны: Alexandrite 755 нм, Diode 810 нм, Nd:YAG 1064 нм",
       "Охлаждение ICE TECH до -31°C · Ресурс 100 млн вспышек",
-      "Новый корпус · 3 сменные насадки · Защитный кейс",
+      "Доступен в 2 цветах · Наличие в Москве или под заказ из Китая",
     ],
   },
   {
@@ -40,11 +40,11 @@ const laserProducts: Product[] = [
     categoryColor: "#6a8360",
     image: "/images/products/soprano-1200-black-hero.png",
     href: "/products/soprano-titanium-1200-black-gold",
-    price: 0,
+    price: 195000,
     specs: [
       "3 длины волны: Alexandrite 755 нм, Diode 810 нм, Nd:YAG 1064 нм",
       "Охлаждение ICE TECH до -31°C · Ресурс 100 млн вспышек",
-      "Классический корпус · 3 сменные насадки · Защитный кейс",
+      "Доступен в 2 цветах · Наличие в Москве или под заказ из Китая",
     ],
   },
   {
@@ -54,11 +54,11 @@ const laserProducts: Product[] = [
     categoryColor: "#6a8360",
     image: "/images/products/soprano-1200-white-hero.png",
     href: "/products/soprano-titanium-1200-white-silver",
-    price: 0,
+    price: 195000,
     specs: [
       "3 длины волны: Alexandrite 755 нм, Diode 810 нм, Nd:YAG 1064 нм",
       "Охлаждение ICE TECH до -31°C · Ресурс 100 млн вспышек",
-      "Классический корпус · 3 сменные насадки · Защитный кейс",
+      "Доступен в 2 цветах · Наличие в Москве или под заказ из Китая",
     ],
   },
   {
@@ -72,7 +72,7 @@ const laserProducts: Product[] = [
     specs: [
       "3 длины волны: Alexandrite 755 нм, Diode 810 нм, Nd:YAG 1064 нм",
       "2 манипулы · Насадка для карбонового пилинга в комплекте",
-      "Охлаждение ICE TECH до -31°C · Ресурс 100 млн вспышек",
+      "Под заказ · Уточните наличие у менеджера",
     ],
   },
   {
@@ -86,7 +86,7 @@ const laserProducts: Product[] = [
     specs: [
       "Начинка Soprano Titanium · Компактный новый корпус",
       "3 длины волны: Alexandrite 755 нм, Diode 810 нм, Nd:YAG 1064 нм",
-      "Охлаждение ICE TECH до -31°C · Ресурс 100 млн вспышек",
+      "Под заказ · Уточните наличие у менеджера",
     ],
   },
   {
@@ -96,11 +96,11 @@ const laserProducts: Product[] = [
     categoryColor: "#6a8360",
     image: "/images/products/alexandrite-hero.png",
     href: "/products/alexandrite-grey",
-    price: 0,
+    price: 295000,
     specs: [
       "Александритовый лазер 755 нм · Эффективен для светлой кожи",
       "Высокая скорость обработки · Подходит для тёмных волос",
-      "Постоянный результат · Профессиональное использование",
+      "Под заказ · Уточните наличие у менеджера",
     ],
   },
 ];
@@ -176,20 +176,7 @@ export default function LaserProducts() {
           </div>
 
           <div style={{ display: "flex", alignItems: "center", gap: "1.5rem", flexWrap: "wrap", marginBottom: "2rem" }}>
-            <Link href="/weight-loss" className="primary-button is-secondary w-inline-block"
-              style={{
-                backgroundColor: "rgba(255,255,255,0.08)",
-                backdropFilter: "blur(12px)",
-                border: "1px solid rgba(255,255,255,0.3)",
-                borderRadius: "999px",
-                padding: "16px 32px",
-                display: "flex",
-                alignItems: "center",
-                gap: "10px"
-              }}>
-              <ArrowIcon />
-              <div data-button-text="">Смотреть все лазеры</div>
-            </Link>
+
             <Link href="/cart" className="primary-button w-inline-block" style={{ backgroundColor: accentColor, padding: "16px 32px", borderRadius: "999px" }}>
               <div data-button-text="">Оставить заявку</div>
             </Link>

@@ -281,7 +281,11 @@
 }
 
 .quicklinks-div.is-service {
-  grid-column: 10 / 13 !important;
+  grid-column: 10 / 11 !important;
+}
+
+.quicklinks-div.is-delivery {
+  grid-column: 11 / 13 !important;
 }
 
 @media (max-width: 991px) {
@@ -1136,7 +1140,7 @@ body.is-cart [hidden] {
 
 .cart-hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.6fr) minmax(20rem, 1fr);
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
   gap: 2rem;
   align-items: end;
 }
@@ -1173,7 +1177,7 @@ body.is-cart [hidden] {
 
 .cart-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.6fr) minmax(20rem, 1fr);
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
   gap: 2rem;
   align-items: start;
 }

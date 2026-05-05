@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import ProductsSlider, { Product } from "./ProductsSlider";
-import ArrowIcon from "../ArrowIcon";
+
 
 const cosmetologyProducts: Product[] = [
   {
@@ -12,11 +12,11 @@ const cosmetologyProducts: Product[] = [
     categoryColor: "#d2a382",
     image: "/images/products/velashape-hero.png",
     href: "/products/velashape-sculptor-white-black",
-    price: 0,
+    price: 170500,
     specs: [
       "5 методик: ИК, РФ, вакуум, ролики, кавитация · 5 манипул",
       "Коррекция фигуры, антицеллюлитные программы",
-      "Клинически подтверждённая эффективность",
+      "Есть в наличии в Москве · Также доступен под заказ из Китая",
     ],
   },
   {
@@ -26,11 +26,11 @@ const cosmetologyProducts: Product[] = [
     categoryColor: "#d2a382",
     image: "/images/products/morpheus-hero.png",
     href: "/products/morpheus-mr8-pro-black-blue",
-    price: 0,
+    price: 75000,
     specs: [
       "Микроигольчатый РФ + EMRF + Криотерапия · 3 манипулы",
       "Глубина воздействия до 8 мм · Омоложение и лифтинг",
-      "Работа с лицом, телом и зоной декольте",
+      "Под заказ · Уточните наличие у менеджера",
     ],
   },
   {
@@ -40,11 +40,11 @@ const cosmetologyProducts: Product[] = [
     categoryColor: "#d2a382",
     image: "/images/products/vibrosphere-hero.png",
     href: "/products/fbody-roller-vibrosphere",
-    price: 0,
+    price: 82000,
     specs: [
       "50 силиконовых шариков для тела · 60 для лица",
       "Компрессионная микровибрация 151–200 Гц",
-      "Эндосфера-терапия · Лимфодренаж и антицеллюлит",
+      "Есть в наличии в Москве · Также доступен под заказ из Китая",
     ],
   },
   {
@@ -58,7 +58,7 @@ const cosmetologyProducts: Product[] = [
     specs: [
       "Эко-кожа · Анатомический матрас · Нагрузка 150–200 кг",
       "Ширина 64 см · Длина 178 см · Высота 60 см",
-      "Съёмные подлокотники · Отверстие для лица · Горизонтальное положение",
+      "Под заказ · Уточните наличие у менеджера",
     ],
   },
   {
@@ -72,7 +72,7 @@ const cosmetologyProducts: Product[] = [
     specs: [
       "5 методик: ИК, РФ, вакуум, ролики, кавитация · 5 манипул",
       "Расширенная вакуумная кавитация · Глубокая коррекция фигуры",
-      "Антицеллюлитные и лимфодренажные программы",
+      "Под заказ · Уточните наличие у менеджера",
     ],
   },
   {
@@ -82,11 +82,11 @@ const cosmetologyProducts: Product[] = [
     categoryColor: "#d2a382",
     image: "/images/products/hydrafacial-original-hero.png",
     href: "/products/hydrafacial-original",
-    price: 0,
+    price: 171000,
     specs: [
       "Оригинальный аппарат · Совместим с расходниками США и аналогами",
       "Глубокое очищение, пилинг, увлажнение, защита",
-      "Подходит для всех типов кожи · Видимый результат после 1 процедуры",
+      "Под заказ · Есть бюджетный аналог — уточните у менеджера",
     ],
   },
   {
@@ -96,11 +96,11 @@ const cosmetologyProducts: Product[] = [
     categoryColor: "#d2a382",
     image: "/images/products/hydrafacial-analog-hero.png",
     href: "/products/hydrafacial-analog",
-    price: 0,
+    price: 119000,
     specs: [
       "Собственный корпус и программное обеспечение",
       "Те же методики: очищение, пилинг, увлажнение, защита",
-      "Доступная альтернатива оригиналу · Профессиональный результат",
+      "Под заказ · Доступная альтернатива оригиналу",
     ],
   },
   {
@@ -110,11 +110,11 @@ const cosmetologyProducts: Product[] = [
     categoryColor: "#d2a382",
     image: "/images/products/endosphere-black-hero.png",
     href: "/products/endosphere-vibrosphere-black",
-    price: 0,
+    price: 98000,
     specs: [
       "Эндосфера-терапия · Компрессионная микровибрация 151–200 Гц",
       "Встроенный жиромер для точного контроля результатов",
-      "Лимфодренаж, антицеллюлит · 1 процедура = 10 ручным массажам",
+      "Под заказ · Уточните наличие у менеджера",
     ],
   },
   {
@@ -128,7 +128,7 @@ const cosmetologyProducts: Product[] = [
     specs: [
       "Неинвазивное замораживание жировых клеток",
       "Коррекция фигуры без операций и реабилитации",
-      "Заметный результат после 1–3 процедур",
+      "Под заказ · Уточните наличие у менеджера",
     ],
   },
 ];
@@ -205,20 +205,7 @@ export default function CosmetologyProducts() {
           </div>
           
           <div style={{ display: "flex", alignItems: "center", gap: "1.5rem", flexWrap: "wrap", marginBottom: "2rem" }}>
-            <Link href="/daily-wellness" className="primary-button is-secondary w-inline-block" 
-              style={{ 
-                backgroundColor: "rgba(255,255,255,0.08)", 
-                backdropFilter: "blur(12px)", 
-                border: "1px solid rgba(255,255,255,0.3)", 
-                borderRadius: "999px",
-                padding: "16px 32px",
-                display: "flex",
-                alignItems: "center",
-                gap: "10px"
-              }}>
-              <ArrowIcon />
-              <div data-button-text="">Смотреть всё оборудование</div>
-            </Link>
+
             <Link href="/products/elza" className="primary-button w-inline-block" style={{ backgroundColor: accentColor, padding: "16px 32px", borderRadius: "999px" }}>
               <div data-button-text="">Оставить заявку</div>
             </Link>

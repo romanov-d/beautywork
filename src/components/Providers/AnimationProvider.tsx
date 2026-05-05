@@ -28,16 +28,37 @@ export default function AnimationProvider({ children }: { children: React.ReactN
       duration: 1.2,
       easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       touchMultiplier: 2,
+      smoothWheel: true,
     });
 
     lenisRef.current = lenis;
     (window as any).lenis = lenis;
+
+    // Sync ScrollTrigger with Lenis
+    lenis.on("scroll", () => {
+      const ScrollTrigger = (window as any).ScrollTrigger;
+      if (ScrollTrigger) ScrollTrigger.update();
+    });
 
     function raf(time: number) {
       lenis.raf(time);
       requestAnimationFrame(raf);
     }
     requestAnimationFrame(raf);
+
+    // Watch for content changes to refresh Lenis
+    const resizeObserver = new ResizeObserver(() => {
+      lenis.resize();
+    });
+    resizeObserver.observe(document.body);
+
+    // Refresh on full window load
+    const handleLoad = () => {
+      lenis.resize();
+      const ScrollTrigger = (window as any).ScrollTrigger;
+      if (ScrollTrigger) ScrollTrigger.refresh();
+    };
+    window.addEventListener("load", handleLoad);
 
     // Global anchor scroll handler
     const handleAnchorClick = (e: MouseEvent) => {
@@ -65,6 +86,8 @@ export default function AnimationProvider({ children }: { children: React.ReactN
 
     return () => {
       lenis.destroy();
+      resizeObserver.disconnect();
+      window.removeEventListener("load", handleLoad);
       window.removeEventListener("click", handleAnchorClick);
     };
   }, []);
@@ -143,6 +166,12 @@ export default function AnimationProvider({ children }: { children: React.ReactN
     // 6. Slider logic
     initSliders();
     
+    // 7. Final Refresh
+    setTimeout(() => {
+      ScrollTrigger.refresh();
+      if (lenisRef.current) lenisRef.current.resize();
+    }, 500);
+
     console.log("GSAP Global Animations initialized");
   };
 

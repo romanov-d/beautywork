@@ -74,40 +74,26 @@ export default function Navbar({ onOpenModal }: NavbarProps) {
     {
       title: "Лазерная эпиляция",
       items: [
-        { name: "Soprano Titanium 1600Вт — Чёрный", href: "/products/soprano-titanium" },
-        { name: "Soprano Titanium 1600Вт — Белый", href: "/products/soprano-titanium" },
-        { name: "Soprano Titanium 1200Вт — Белый", href: "/products/soprano-titanium" },
-        { name: "Soprano Titanium 1200Вт — Золотой", href: "/products/soprano-titanium" },
+        { name: "Soprano Titanium 1600Вт — Чёрный с золотом", href: "/products/soprano-titanium-1600-black-gold" },
+        { name: "Soprano Titanium 1600Вт — Белый с серебром", href: "/products/soprano-titanium-1600-white-silver" },
+        { name: "Soprano Titanium 1200Вт — Чёрный с золотом", href: "/products/soprano-titanium-1200-black-gold" },
+        { name: "Soprano Titanium 1200Вт — Белый с серебром", href: "/products/soprano-titanium-1200-white-silver" },
+        { name: "Александрит — Серый", href: "/products/alexandrite-grey" },
       ],
-      allLink: "/weight-loss",
+      allLink: "/#catalog",
       allText: "Все лазеры",
     },
     {
       title: "Аппаратная косметология",
       items: [
-        { name: "Morpheus MR 8 PRO", href: "/products/elza" },
-        { name: "Velashape Sculptor", href: "/products/elza" },
-        { name: "Vibrosphere LPG", href: "/products/elza" },
+        { name: "Morpheus MR 8 PRO", href: "/products/morpheus-mr8-pro-black-blue" },
+        { name: "Velashape Sculptor", href: "/products/velashape-sculptor-white-black" },
+        { name: "Эндосфера / Вибросфера", href: "/products/fbody-roller-vibrosphere" },
+        { name: "Hydrafacial 1:1 Оригинал", href: "/products/hydrafacial-original" },
+        { name: "Кушетка «Эльза»", href: "/products/elza-couch-white" },
       ],
-      allLink: "/daily-wellness",
+      allLink: "/#catalog",
       allText: "Все аппараты",
-    },
-    {
-      title: "Коррекция фигуры",
-      items: [
-        { name: "VelaShape Sculptor", href: "/products/elza" },
-        { name: "EMS Sculpt", href: "/products/elza" },
-      ],
-      allLink: "/products",
-      allText: "Все аппараты",
-    },
-    {
-      title: "Мебель для салонов",
-      items: [
-        { name: "Кушетка «Эльза»", href: "/products/elza" },
-      ],
-      allLink: "/hair",
-      allText: "Вся мебель",
     },
   ];
 

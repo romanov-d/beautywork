@@ -69,7 +69,7 @@ export default function HeroSection({ onOpenModal }: { onOpenModal: () => void }
 
       {/* Left side photo with parallax */}
       <motion.img
-        src="/images/intro-person-left.jpg"
+        src="/images/hero1.jpg"
         alt=""
         style={{
           position: "absolute", left: "2%", top: "28%", zIndex: 5,
@@ -80,7 +80,7 @@ export default function HeroSection({ onOpenModal }: { onOpenModal: () => void }
 
       {/* Right side photo with parallax */}
       <motion.img
-        src="/images/intro-person.jpg"
+        src="/images/hero2.jpg"
         alt=""
         style={{
           position: "absolute", right: "2%", top: "42%", zIndex: 5,

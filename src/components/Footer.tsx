@@ -20,39 +20,44 @@ export default function Footer({ onOpenModal }: { onOpenModal: () => void }) {
           </div>
         </div>
         <div className="w-layout-grid global-grid is-footer">
-          <div className="footer-heading-wrapper">
-            <h2 className="hero-heading is-footer">Оборудование, которое <span>работает на ваш салон</span></h2>
+          <div className="footer-heading-wrapper" style={{ width: "100%", display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
+            <h2 className="hero-heading is-footer" style={{ marginBottom: "2.5rem", textAlign: "left" }}>
+              Оборудование, которое <span>работает на ваш салон</span>
+            </h2>
+            <div className="footer-ctas">
+              <a href="#" className="primary-button is-footer w-inline-block"
+                onClick={(e) => { e.preventDefault(); onOpenModal(); }}>
+                <ArrowIcon />
+                <div data-button-text="">Оставить заявку</div>
+              </a>
+            </div>
           </div>
           
           <div className="quicklinks-div is-catalog">
             <h3 className="subheading is-white">Каталог</h3>
             <div className="quicklinks-flex">
-              <Link href="/" className="body-large is-link">Лазерная эпиляция</Link>
-              <Link href="/" className="body-large is-link">Аппаратная косметология</Link>
-              <Link href="/" className="body-large is-link">Коррекция фигуры</Link>
-              <Link href="/" className="body-large is-link">Мебель для салонов</Link>
+              <Link href="/#catalog" className="body-large is-link">Лазерная эпиляция</Link>
+              <Link href="/#catalog" className="body-large is-link">Аппаратная косметология</Link>
             </div>
           </div>
 
           <div className="quicklinks-div is-popular">
             <h3 className="subheading is-white">Популярные модели</h3>
             <div className="quicklinks-flex">
-              <Link href="/products/elza" className="body-large is-link">Soprano Titanium 1600Вт</Link>
-              <Link href="/products/elza" className="body-large is-link">Soprano Titanium 1200Вт</Link>
-              <Link href="/products/elza" className="body-large is-link">Morpheus MR 8 PRO</Link>
-              <Link href="/products/elza" className="body-large is-link">Velashape Sculptor</Link>
-              <Link href="/products/elza" className="body-large is-link">Кушетка «Эльза»</Link>
+              <Link href="/products/soprano-titanium-1600-black-gold" className="body-large is-link">Soprano Titanium 1600Вт</Link>
+              <Link href="/products/soprano-titanium-1200-black-gold" className="body-large is-link">Soprano Titanium 1200Вт</Link>
+              <Link href="/products/morpheus-mr8-pro-black-blue" className="body-large is-link">Morpheus MR 8 PRO</Link>
+              <Link href="/products/velashape-sculptor-white-black" className="body-large is-link">Velashape Sculptor</Link>
+              <Link href="/products/elza-couch-white" className="body-large is-link">Кушетка «Эльза»</Link>
             </div>
           </div>
 
           <div className="quicklinks-div is-company">
             <h3 className="subheading is-white">Компания</h3>
             <div className="quicklinks-flex">
-              <Link href="/" className="body-large is-link">О нас</Link>
               <Link href="/terms-and-conditions" className="body-large is-link">Условия сотрудничества</Link>
-              <Link href="/return-policy" className="body-large is-link">Гарантия и возврат</Link>
-              <Link href="/shipping-policy" className="body-large is-link">Доставка</Link>
               <Link href="/privacy-policy" className="body-large is-link">Политика конфиденциальности</Link>
+              <Link href="/cart" className="body-large is-link">Оставить заявку</Link>
             </div>
           </div>
 
@@ -72,13 +77,16 @@ export default function Footer({ onOpenModal }: { onOpenModal: () => void }) {
             </div>
           </div>
 
-          <div className="footer-ctas">
-            <a href="#" className="primary-button is-footer w-inline-block"
-              onClick={(e) => { e.preventDefault(); onOpenModal(); }}>
-              <ArrowIcon />
-              <div data-button-text="">Оставить заявку</div>
-            </a>
+          <div className="quicklinks-div is-delivery">
+            <h3 className="subheading is-white">Доставка</h3>
+            <div className="quicklinks-flex">
+              <span className="body-large">Москва — ~20 000 ₽</span>
+              <span className="body-large">Московская область — ~20 000 ₽</span>
+              <span className="body-large">Регионы — индивидуальный расчёт</span>
+            </div>
           </div>
+
+
         </div>
       </div>
 

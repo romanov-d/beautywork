@@ -9,10 +9,8 @@ interface ModalProps {
 }
 
 const categories = [
-  { name: "Лазерная эпиляция", href: "/weight-loss", linkClass: "modal-link-block w-inline-block", colourClass: "modal-colour" },
-  { name: "Аппаратная косметология", href: "/sexual-health", linkClass: "modal-link-block is-2 w-inline-block", colourClass: "modal-colour is-2" },
-  { name: "Коррекция фигуры", href: "/daily-wellness", linkClass: "modal-link-block is-3 w-inline-block", colourClass: "modal-colour is-3" },
-  { name: "Мебель для салонов", href: "/hair", linkClass: "modal-link-block is-4 w-inline-block", colourClass: "modal-colour is-4" },
+  { name: "Лазерная эпиляция", href: "/#catalog", linkClass: "modal-link-block w-inline-block", colourClass: "modal-colour" },
+  { name: "Аппаратная косметология", href: "/#catalog", linkClass: "modal-link-block is-2 w-inline-block", colourClass: "modal-colour is-2" },
 ];
 
 export default function Modal({ isOpen, onClose }: ModalProps) {
