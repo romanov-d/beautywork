@@ -67,7 +67,22 @@ body {
   flex-direction: column !important;
   justify-content: center !important;
   align-items: center !important;
-  padding-bottom: 25vh !important; /* Raised even higher on desktop */
+  padding-bottom: 35vh !important; /* Raised even higher on desktop */
+}
+
+/* Hero Button Inversion */
+.hero-section .primary-button {
+  background-color: #f0ede8 !important; /* Premium off-white */
+  color: #0c0c0c !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.hero-section .primary-button div[data-button-text] {
+  color: #0c0c0c !important;
+}
+
+.hero-section .primary-button .arrow-icon {
+  color: #0c0c0c !important;
 }
 
 
@@ -393,6 +408,7 @@ h3.heading-5.is-process,
 .modal__card {
   background-color: #1e1e1e !important;
   color: #f0ede8 !important;
+  border-radius: 60px !important;
 }
 
 .modal__card .heading-3,
@@ -804,7 +820,7 @@ h3.heading-5.is-process,
   }
 
   .centre-flex {
-    padding-top: 70px !important;
+    padding-top: 50px !important; /* Reduced from 70px to lift higher */
     padding-bottom: 10vh !important;
     margin-top: 0 !important;
     display: flex !important;

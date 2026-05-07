@@ -106,13 +106,20 @@
 /* Override green product CTAs with dark header color */
 .primary-button.is-ft-1,
 .primary-button.is-ft-2,
-.primary-button.is-ft-3,
+.primary-button.is-ft-3 {
+  background-color: #323232 !important;
+  color: #fff !important;
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+}
+
 .primary-button.is-p-l,
 .primary-button.is-p-r {
   background-color: #323232 !important;
   color: #fff !important;
   white-space: nowrap !important;
-  flex-shrink: 0 !important;
+  flex: 1 !important;
+  width: auto !important;
 }
 
 /* Fully rounded buttons everywhere */

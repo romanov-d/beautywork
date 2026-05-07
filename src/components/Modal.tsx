@@ -10,7 +10,7 @@ interface ModalProps {
 
 const categories = [
   { name: "Лазерная эпиляция", href: "/#catalog", linkClass: "modal-link-block w-inline-block", colourClass: "modal-colour" },
-  { name: "Аппаратная косметология", href: "/#catalog", linkClass: "modal-link-block is-2 w-inline-block", colourClass: "modal-colour is-2" },
+  { name: "Аппаратная косметология", href: "/#cosmetology", linkClass: "modal-link-block is-2 w-inline-block", colourClass: "modal-colour is-2" },
 ];
 
 export default function Modal({ isOpen, onClose }: ModalProps) {

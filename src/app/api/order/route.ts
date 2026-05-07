@@ -1,7 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-
-const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
-const CHAT_ID = process.env.TELEGRAM_CHAT_ID;
+import { getBotToken, getOwnerChatId, sendTelegramMessage } from "@/lib/telegram";
 
 interface OrderItem {
   name: string;
@@ -30,7 +28,9 @@ const entityLabels: Record<string, string> = {
 };
 
 export async function POST(req: NextRequest) {
-  if (!BOT_TOKEN || !CHAT_ID) {
+  const token = getBotToken();
+  const chatId = getOwnerChatId();
+  if (!token || !chatId) {
     console.error("Telegram credentials not configured");
     return NextResponse.json({ error: "Telegram not configured" }, { status: 500 });
   }
@@ -54,7 +54,7 @@ export async function POST(req: NextRequest) {
     ? `📦 *Товары:*\n${items.map(item => `• ${item.name} × ${item.qty}`).join("\n")}`
     : "📦 *Товары:* не выбраны";
 
-  const lines = [
+  const text = [
     "🛒 *Новая заявка с сайта*",
     "",
     itemsBlock,
@@ -69,22 +69,12 @@ export async function POST(req: NextRequest) {
     `📧 *E-mail:* ${form.email}`,
     form.telegram ? `✈️ *Telegram:* ${form.telegram}` : null,
   ]
-    .filter(line => line !== null)
+    .filter((line): line is string => line !== null)
     .join("\n");
 
-  const res = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      chat_id: CHAT_ID,
-      text: lines,
-      parse_mode: "Markdown",
-    }),
-  });
-
-  if (!res.ok) {
-    const err = await res.text();
-    console.error("Telegram API error:", err);
+  const result = await sendTelegramMessage(chatId, text);
+  if (!result.ok) {
+    console.error("Telegram API error:", result.error);
     return NextResponse.json({ error: "Telegram delivery failed" }, { status: 502 });
   }
 

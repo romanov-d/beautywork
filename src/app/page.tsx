@@ -41,7 +41,7 @@ export default function HomePage() {
         <div id="catalog">
           <LaserProducts />
         </div>
-        <div style={{ marginTop: "5rem" }}>
+        <div id="cosmetology" style={{ marginTop: "5rem" }}>
           <CosmetologyProducts />
         </div>
         <div id="reviews" style={{ marginTop: "5rem" }}>
