@@ -2233,3 +2233,22 @@ body.is-cart [hidden] {
     border-radius: 0.6rem !important;
   }
 }
+
+/* Mobile cart summary aside: center its content despite the global left-align rule */
+@media (max-width: 767px) {
+  .cart-summary,
+  .cart-summary *,
+  .cart-summary-head,
+  .cart-summary-rows,
+  .cart-summary-row {
+    text-align: center !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .cart-summary-row {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.25rem !important;
+  }
+}
