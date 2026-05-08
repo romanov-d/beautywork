@@ -1353,10 +1353,11 @@ body.is-cart [hidden] {
   font-weight: 600;
   color: #323232;
   padding: 0;
-  line-height: 1;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  margin: 0;
+  line-height: 2.6rem;
+  box-sizing: border-box;
+  display: block;
+  flex: 0 0 auto;
 }
 
 .cart-qty-input:focus {
