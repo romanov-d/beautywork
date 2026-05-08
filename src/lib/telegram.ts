@@ -1,4 +1,8 @@
-const API_BASE = "https://api.telegram.org";
+const DEFAULT_API_BASE = "https://api.telegram.org";
+
+function getApiBase(): string {
+  return (process.env.TELEGRAM_API_BASE ?? DEFAULT_API_BASE).replace(/\/+$/, "");
+}
 
 export function getOwnerChatId(): string | undefined {
   return process.env.ALLOWED_TELEGRAM_USER_ID ?? process.env.TELEGRAM_CHAT_ID;
@@ -16,7 +20,7 @@ export async function sendTelegramMessage(
   const token = getBotToken();
   if (!token) return { ok: false, error: "TELEGRAM_BOT_TOKEN not set" };
 
-  const res = await fetch(`${API_BASE}/bot${token}/sendMessage`, {
+  const res = await fetch(`${getApiBase()}/bot${token}/sendMessage`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
