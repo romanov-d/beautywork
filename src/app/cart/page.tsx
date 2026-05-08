@@ -11,7 +11,6 @@ import { useCart } from "@/context/CartContext";
 export default function CartPage() {
   const [modalOpen, setModalOpen] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [isMounted, setIsMounted] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
@@ -27,10 +26,9 @@ export default function CartPage() {
     };
   }, []);
 
-  const handleSubmit = async (e: { preventDefault(): void; currentTarget: HTMLFormElement }) => {
+  const handleSubmit = (e: { preventDefault(): void; currentTarget: HTMLFormElement }) => {
     e.preventDefault();
 
-    setIsSubmitting(true);
     setSubmitError(null);
 
     const data = new FormData(e.currentTarget);
@@ -46,26 +44,21 @@ export default function CartPage() {
       email: data.get("email") as string,
       telegram: data.get("telegram") as string,
     };
+    const payload = JSON.stringify({ items, form });
 
-    try {
-      const res = await fetch("/api/order", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ items, form }),
-      });
+    const itemsSnapshot = items;
+    clearCart();
+    setIsSuccess(true);
+    window.scrollTo({ top: 0, behavior: "smooth" });
 
-      if (!res.ok) {
-        throw new Error("Ошибка отправки. Попробуйте ещё раз или позвоните нам.");
-      }
-
-      clearCart();
-      setIsSuccess(true);
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    } catch (err) {
-      setSubmitError(err instanceof Error ? err.message : "Что-то пошло не так.");
-    } finally {
-      setIsSubmitting(false);
-    }
+    fetch("/api/order", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: payload,
+      keepalive: true,
+    }).catch(err => {
+      console.error("Order delivery failed", err, { items: itemsSnapshot });
+    });
   };
 
   if (!isMounted) return null;
@@ -350,13 +343,9 @@ export default function CartPage() {
                     <button
                       type="submit"
                       className="primary-button is-cart-submit w-button"
-                      disabled={isSubmitting}
-                      style={{ opacity: isSubmitting ? 0.7 : 1 }}
                     >
                       <ArrowIcon />
-                      <span data-button-text>
-                        {isSubmitting ? "Отправляем..." : "Отправить заявку на счёт"}
-                      </span>
+                      <span data-button-text>Отправить заявку на счёт</span>
                     </button>
                     <p className="cart-form-submit-note">Нажимая «Отправить заявку», вы подтверждаете корректность реквизитов. Менеджер перезвонит в течение рабочего дня.</p>
                   </div>
