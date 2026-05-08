@@ -218,6 +218,10 @@ const PAGE_STYLES = `
       margin-bottom: 0.5rem;
     }
     .product-desktop-title { display: none; }
+
+    .product-description {
+      margin-top: 2.5rem;
+    }
   }
 `;
 
