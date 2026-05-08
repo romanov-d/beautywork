@@ -225,8 +225,7 @@ export default function CartPage() {
           </div>
         </section>
 
-        {!isSuccess ? (
-          <section id="request-form" className="cart-form-section is-dark" style={{ paddingTop: "8rem", paddingBottom: "8rem" }}>
+        <section id="request-form" className="cart-form-section is-dark" style={{ paddingTop: "8rem", paddingBottom: "8rem" }}>
             <div className="cart-container">
               <div className="cart-form-grid">
                 <div className="cart-form-intro">
@@ -353,22 +352,46 @@ export default function CartPage() {
               </div>
             </div>
           </section>
-        ) : (
-          <section className="cart-form-section">
-            <div className="cart-container">
-              <div className="cart-form-success">
-                <div className="subheading is-white">Готово</div>
-                <h3 className="hero-heading is-cart-summary">Заявка отправлена</h3>
-                <p>Мы получили ваши реквизиты. Менеджер отдела продаж свяжется в течение рабочего дня, чтобы согласовать спецификацию и выставить счёт.</p>
-                <Link href="/" className="primary-button is-secondary w-inline-block">
-                  <div data-button-text="">Вернуться на главную</div>
-                </Link>
-              </div>
-            </div>
-          </section>
-        )}
-
         <Footer onOpenModal={() => setModalOpen(true)} />
+
+        {isSuccess && (
+          <div
+            style={{
+              position: "fixed",
+              inset: 0,
+              zIndex: 9999,
+              background: "rgba(0,0,0,0.7)",
+              backdropFilter: "blur(8px)",
+              WebkitBackdropFilter: "blur(8px)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              padding: "2rem",
+            }}
+          >
+            <div
+              style={{
+                background: "#1a1a1a",
+                color: "#fff",
+                borderRadius: "1.5rem",
+                padding: "3rem 2.5rem",
+                maxWidth: "32rem",
+                width: "100%",
+                textAlign: "center",
+                boxShadow: "0 20px 60px rgba(0,0,0,0.5)",
+              }}
+            >
+              <div className="subheading is-white" style={{ marginBottom: "1rem" }}>Готово</div>
+              <h3 className="hero-heading is-cart-summary" style={{ marginBottom: "1rem" }}>Заявка отправлена</h3>
+              <p style={{ marginBottom: "2rem", opacity: 0.85 }}>
+                Мы получили ваши реквизиты. Менеджер отдела продаж свяжется в течение рабочего дня, чтобы согласовать спецификацию и выставить счёт.
+              </p>
+              <Link href="/" className="primary-button is-secondary w-inline-block">
+                <div data-button-text="">Вернуться на главную</div>
+              </Link>
+            </div>
+          </div>
+        )}
       </div>
     </>
   );
