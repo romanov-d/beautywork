@@ -20,9 +20,13 @@ export async function sendTelegramMessage(
   const token = getBotToken();
   if (!token) return { ok: false, error: "TELEGRAM_BOT_TOKEN not set" };
 
+  const headers: Record<string, string> = { "Content-Type": "application/json" };
+  const proxySecret = process.env.TELEGRAM_PROXY_SECRET;
+  if (proxySecret) headers["x-proxy-secret"] = proxySecret;
+
   const res = await fetch(`${getApiBase()}/bot${token}/sendMessage`, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers,
     body: JSON.stringify({
       chat_id: chatId,
       text,
