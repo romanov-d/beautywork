@@ -1315,21 +1315,28 @@ body.is-cart [hidden] {
 
 .cart-qty {
   display: inline-flex;
-  align-items: stretch;
+  align-items: center;
   border: 1px solid rgba(50, 50, 50, 0.15);
   border-radius: 999px;
   overflow: hidden;
   background: #ffffff;
+  height: 2.6rem;
 }
 
 .cart-qty-btn {
   border: 0;
   background: transparent;
   width: 2.4rem;
+  height: 100%;
   font-size: 1.1rem;
+  line-height: 1;
   cursor: pointer;
   color: var(--brand-colours--grey, #323232);
   transition: background 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
 }
 
 .cart-qty-btn:hover {
@@ -1338,13 +1345,18 @@ body.is-cart [hidden] {
 
 .cart-qty-input {
   width: 2.6rem;
+  height: 100%;
   text-align: center;
   border: 0;
   background: transparent;
   font: inherit;
   font-weight: 600;
   color: #323232;
-  padding: 0.55rem 0;
+  padding: 0;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .cart-qty-input:focus {
@@ -2058,12 +2070,17 @@ body.is-cart [hidden] {
     justify-content: flex-start !important;
   }
 
-  /* Form Title to the Left as requested */
+  /* Form intro centered on mobile */
   .display.is-cart-form-title,
   .heading-5.is-form-lead {
-    text-align: left !important;
-    align-items: flex-start !important;
+    text-align: center !important;
+    align-items: center !important;
     width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  .heading-5.is-form-lead {
+    max-width: 32rem !important;
   }
 
   /* Empty Cart Summary centered on PC & Mobile */
@@ -2172,4 +2189,47 @@ body.is-cart [hidden] {
 /* Global Empty Summary Center */
 .hero-heading.is-cart-summary {
   text-align: center !important;
+}
+/* Mobile cart items: center content */
+@media (max-width: 767px) {
+  .cart-item {
+    text-align: center;
+    justify-items: center;
+  }
+
+  .cart-item-body,
+  .cart-item-meta,
+  .cart-item-actions,
+  .cart-item-price {
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+
+  .cart-item-specs {
+    align-items: center !important;
+  }
+
+  .cart-item-specs li {
+    text-align: center;
+  }
+
+  .cart-item-actions {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 1rem !important;
+    justify-content: center !important;
+  }
+
+  .cart-item-visual {
+    width: 70%;
+    margin: 0 auto;
+  }
+}
+
+/* Mobile footer: less rounded */
+@media (max-width: 767px) {
+  .footer-container {
+    border-radius: 0.6rem !important;
+  }
 }

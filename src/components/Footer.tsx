@@ -54,7 +54,7 @@ export default function Footer({ onOpenModal }: { onOpenModal: () => void }) {
           <div className="quicklinks-div is-company">
             <h3 className="subheading is-white">Компания</h3>
             <div className="quicklinks-flex">
-              <Link href="/terms-and-conditions" className="body-large is-link">Условия сотрудничества</Link>
+              <Link href="/terms-and-conditions" className="body-large is-link">Пользовательское соглашение</Link>
               <Link href="/privacy-policy" className="body-large is-link">Политика конфиденциальности</Link>
               <a href="#" className="body-large is-link" onClick={(e) => { e.preventDefault(); onOpenModal(); }}>Оставить заявку</a>
             </div>

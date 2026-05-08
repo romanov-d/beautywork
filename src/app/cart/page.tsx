@@ -29,6 +29,11 @@ export default function CartPage() {
   const handleSubmit = (e: { preventDefault(): void; currentTarget: HTMLFormElement }) => {
     e.preventDefault();
 
+    if (!e.currentTarget.checkValidity()) {
+      e.currentTarget.reportValidity();
+      return;
+    }
+
     setSubmitError(null);
 
     const data = new FormData(e.currentTarget);
@@ -273,11 +278,36 @@ export default function CartPage() {
                   <div className="cart-form-row is-2">
                     <label className="cart-field">
                       <span className="cart-field-label">ИНН *</span>
-                      <input type="text" name="inn" className="cart-input w-input" placeholder="7701234567" required />
+                      <input
+                        type="text"
+                        name="inn"
+                        className="cart-input w-input"
+                        placeholder="7701234567"
+                        required
+                        inputMode="numeric"
+                        pattern="\d{10}|\d{12}"
+                        title="ИНН должен содержать 10 цифр (юр. лицо) или 12 цифр (ИП)"
+                        maxLength={12}
+                        onInput={(e) => {
+                          e.currentTarget.value = e.currentTarget.value.replace(/\D/g, "");
+                        }}
+                      />
                     </label>
                     <label className="cart-field">
                       <span className="cart-field-label">КПП</span>
-                      <input type="text" name="kpp" className="cart-input w-input" placeholder="770101001" />
+                      <input
+                        type="text"
+                        name="kpp"
+                        className="cart-input w-input"
+                        placeholder="770101001"
+                        inputMode="numeric"
+                        pattern="\d{9}"
+                        title="КПП должен содержать 9 цифр"
+                        maxLength={9}
+                        onInput={(e) => {
+                          e.currentTarget.value = e.currentTarget.value.replace(/\D/g, "");
+                        }}
+                      />
                     </label>
                   </div>
 
@@ -307,11 +337,31 @@ export default function CartPage() {
                   <div className="cart-form-row is-2">
                     <label className="cart-field">
                       <span className="cart-field-label">Телефон *</span>
-                      <input type="tel" name="phone" className="cart-input w-input" placeholder="+7 (___) ___-__-__" required />
+                      <input
+                        type="tel"
+                        name="phone"
+                        className="cart-input w-input"
+                        placeholder="+7 (___) ___-__-__"
+                        required
+                        inputMode="tel"
+                        pattern="^\+?[0-9\s\-\(\)]{10,20}$"
+                        title="Введите телефон, например +7 (495) 123-45-67"
+                        onInput={(e) => {
+                          e.currentTarget.value = e.currentTarget.value.replace(/[^\d+\s\-()]/g, "");
+                        }}
+                      />
                     </label>
                     <label className="cart-field">
                       <span className="cart-field-label">E-mail *</span>
-                      <input type="email" name="email" className="cart-input w-input" placeholder="anna@salon.ru" required />
+                      <input
+                        type="email"
+                        name="email"
+                        className="cart-input w-input"
+                        placeholder="anna@salon.ru"
+                        required
+                        pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$"
+                        title="Введите корректный e-mail, например anna@salon.ru"
+                      />
                     </label>
                   </div>
 
@@ -327,7 +377,7 @@ export default function CartPage() {
                       <input type="checkbox" name="agree_terms" className="cart-check-input" required />
                       <span className="cart-check-box" aria-hidden="true"></span>
                       <span className="cart-check-label">
-                        Согласен с <Link href="/privacy-policy" className="is-link" style={{ textDecoration: "underline" }}>условиями сотрудничества</Link> и <Link href="/privacy-policy" className="is-link" style={{ textDecoration: "underline" }}>политикой обработки данных</Link> *
+                        Согласен с <Link href="/terms-and-conditions" className="is-link" style={{ textDecoration: "underline" }}>пользовательским соглашением</Link> и <Link href="/privacy-policy" className="is-link" style={{ textDecoration: "underline" }}>политикой конфиденциальности</Link> *
                       </span>
                     </label>
                   </div>
