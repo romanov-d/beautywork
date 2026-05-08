@@ -257,47 +257,6 @@ export default function HeroSection({ onOpenModal }: { onOpenModal: () => void }
         </a>
       </div>
       {/* Decorative Arrow & Text - PC Only */}
-      <div 
-        className="pc-only"
-        style={{
-          position: "absolute",
-          right: "12%",
-          top: "50%",
-          zIndex: 15,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "flex-start",
-          gap: "1rem"
-        }}
-      >
-        <div style={{ 
-          fontSize: "15px", 
-          color: "#f0ede8", 
-          opacity: 0.8,
-          maxWidth: "180px",
-          lineHeight: "1.4",
-          fontFamily: "var(--font-inter), sans-serif"
-        }}>
-          Чистая кожа с нашим оборудованием
-        </div>
-        <svg width="250" height="150" viewBox="0 0 250 150" fill="none" style={{ position: "absolute", right: "100%", top: "20px", pointerEvents: "none" }}>
-          <path 
-            d="M230 20 C180 60 120 80 40 100" 
-            stroke="#f0ede8" 
-            strokeWidth="1.5" 
-            strokeDasharray="8 8" 
-            opacity="0.4"
-          />
-          {/* Arrowhead aligned to curve arrival direction */}
-          <path
-            d="M40 100 L57 83 M40 100 L57 112"
-            stroke="#f0ede8"
-            strokeWidth="2"
-            strokeLinecap="round"
-            opacity="0.5"
-          />
-        </svg>
-      </div>
     </section>
   );
 }

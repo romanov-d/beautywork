@@ -1344,24 +1344,15 @@ body.is-cart [hidden] {
 }
 
 .cart-qty-input {
-  width: 2.6rem;
+  width: 2.4rem;
   height: 100%;
   text-align: center;
-  border: 0;
-  background: transparent;
-  font: inherit;
   font-weight: 600;
   color: #323232;
-  padding: 0;
-  margin: 0;
-  line-height: 2.6rem;
-  box-sizing: border-box;
-  display: block;
-  flex: 0 0 auto;
-}
-
-.cart-qty-input:focus {
-  outline: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
 }
 
 .cart-item-price {
@@ -2196,6 +2187,14 @@ body.is-cart [hidden] {
   .cart-item {
     text-align: center;
     justify-items: center;
+  }
+
+  /* Defeat the global .cart-section * left-align rule for the qty stepper */
+  .cart-qty,
+  .cart-qty * {
+    text-align: center !important;
+    justify-content: center !important;
+    align-items: center !important;
   }
 
   .cart-item-body,

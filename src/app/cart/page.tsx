@@ -127,7 +127,7 @@ export default function CartPage() {
                             <div className="cart-item-actions">
                               <div className="cart-qty" role="group" aria-label="Количество">
                                 <button type="button" className="cart-qty-btn" onClick={() => updateQty(item.id, -1)}>−</button>
-                                <input type="text" className="cart-qty-input" value={item.qty} readOnly aria-label="Количество" />
+                                <span className="cart-qty-input" role="status" aria-label="Количество">{item.qty}</span>
                                 <button type="button" className="cart-qty-btn" onClick={() => updateQty(item.id, 1)}>+</button>
                               </div>
                               <button type="button" className="cart-remove" onClick={() => removeItem(item.id)}>
