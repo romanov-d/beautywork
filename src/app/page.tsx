@@ -3,18 +3,21 @@
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Modal from "@/components/Modal";
+import RequestModal from "@/components/RequestModal";
 import Footer from "@/components/Footer";
 import HeroSection from "@/components/home/HeroSection";
 import IntroSection from "@/components/home/IntroSection";
 import LaserProducts from "@/components/home/LaserProducts";
 import CosmetologyProducts from "@/components/home/CosmetologyProducts";
 import Reviews from "@/components/home/Reviews";
+import BusinessLaunch from "@/components/home/BusinessLaunch";
 import HowItWorks from "@/components/home/HowItWorks";
 import HealthGuide from "@/components/home/HealthGuide";
 import FAQ from "@/components/home/FAQ";
 
 export default function HomePage() {
   const [modalOpen, setModalOpen] = useState(false);
+  const [requestOpen, setRequestOpen] = useState(false);
 
   return (
     <>
@@ -30,6 +33,7 @@ export default function HomePage() {
 
       {/* Modal — outside page-wrapper */}
       <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
+      <RequestModal isOpen={requestOpen} onClose={() => setRequestOpen(false)} source="Запуск бизнеса" />
 
       {/* page-wrapper — everything else inside */}
       <div className="page-wrapper">
@@ -47,6 +51,7 @@ export default function HomePage() {
         <div id="reviews" style={{ marginTop: "5rem" }}>
           <Reviews />
         </div>
+        <BusinessLaunch onOpenRequest={() => setRequestOpen(true)} />
         <HowItWorks />
         <HealthGuide />
         <FAQ />
